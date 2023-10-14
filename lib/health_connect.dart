@@ -4348,6 +4348,78 @@ class Bg1Profile extends jni.JObject {
 
   /// from: static public final int CODE_GDH
   static const CODE_GDH = 2;
+
+  /// Maps a specific port to the implemented interface.
+  static final Map<int, $Bg1ProfileImpl> _$impls = {};
+  ReceivePort? _$p;
+
+  static jni.JObjectPtr _$invoke(
+    int port,
+    jni.JObjectPtr descriptor,
+    jni.JObjectPtr args,
+  ) {
+    return _$invokeMethod(
+      port,
+      $MethodInvocation.fromAddresses(
+        0,
+        descriptor.address,
+        args.address,
+      ),
+    );
+  }
+
+  static final ffi.Pointer<
+          ffi.NativeFunction<
+              jni.JObjectPtr Function(
+                  ffi.Uint64, jni.JObjectPtr, jni.JObjectPtr)>>
+      _$invokePointer = ffi.Pointer.fromFunction(_$invoke);
+
+  static ffi.Pointer<ffi.Void> _$invokeMethod(
+    int $p,
+    $MethodInvocation $i,
+  ) {
+    try {
+      final $d = $i.methodDescriptor.toDartString(releaseOriginal: true);
+      final $a = $i.args;
+    } catch (e) {
+      return ProtectedJniExtensions.newDartException(e.toString());
+    }
+    return jni.nullptr;
+  }
+
+  factory Bg1Profile.implement(
+    $Bg1ProfileImpl $impl,
+  ) {
+    final $p = ReceivePort();
+    final $x = Bg1Profile.fromRef(
+      ProtectedJniExtensions.newPortProxy(
+        r"com.ihealth.communication.control.Bg1Profile",
+        $p,
+        _$invokePointer,
+      ),
+    ).._$p = $p;
+    final $a = $p.sendPort.nativePort;
+    _$impls[$a] = $impl;
+    $p.listen(($m) {
+      if ($m == null) {
+        _$impls.remove($p.sendPort.nativePort);
+        $p.close();
+        return;
+      }
+      final $i = $MethodInvocation.fromMessage($m as List<dynamic>);
+      final $r = _$invokeMethod($p.sendPort.nativePort, $i);
+      ProtectedJniExtensions.returnResult($i.result, $r);
+    });
+    return $x;
+  }
+}
+
+abstract class $Bg1ProfileImpl {
+  factory $Bg1ProfileImpl() = _$Bg1ProfileImpl;
+}
+
+class _$Bg1ProfileImpl implements $Bg1ProfileImpl {
+  _$Bg1ProfileImpl();
 }
 
 final class $Bg1ProfileType extends jni.JObjType<Bg1Profile> {

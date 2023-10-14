@@ -1,5 +1,8 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:health_connect/health_connect.dart';
+import 'package:jni/internal_helpers_for_jnigen.dart';
 import 'package:jni/jni.dart';
 
 void main() {
@@ -57,6 +60,23 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+class IhealthCallback extends iHealthDevicesCallback {
+  static final _new0 = jniLookup<NativeFunction<JniResult Function()>>(
+          "iHealthDevicesCallback__new0")
+      .asFunction<JniResult Function()>();
+  // Constructor that calls the factory constructor of the superclass.
+  IhealthCallback() : super.fromRef(_new0().object);
+
+  @override
+  void onScanDevice(
+    JString string,
+    JString string1,
+    int i,
+  ) {
+    print("onScanDevice");
+  }
+}
+
 class _MyHomePageState extends State<MyHomePage> {
   final int _counter = 0;
 
@@ -73,9 +93,17 @@ class _MyHomePageState extends State<MyHomePage> {
     print(
         "iHealthDevicesManager.getInstance().sdkAuthWithLicense(context, \"\");");
 
-    //  JArray jArray = JArray.fromRef(Jni.getCachedApplicationContext());
+    iHealthDevicesManager().registerClientCallback(IhealthCallback());
 
-    // iHealthDevicesManager().sdkAuthWithLicense(context, "");
+    //   iHealthDevicesCallback.implement($iHealthDevicesCallbackImpl(...))
+
+    iHealthDevicesManager().startDiscovery(DiscoveryTypeEnum.HS2S);
+
+    // ByteArray byteArray = ByteArray.fromRef(Jni.getCachedApplicationContext());
+
+    // JArray jArray = JArray.filled(length, fill)
+
+    //   iHealthDevicesManager().sdkAuthWithLicense(context, "");
     // final aggregateRequest = AggregateRequest(
     //   {StepsRecord.COUNT_TOTAL}.toJSet(AggregateMetric.type(JLong.type)),
     //   TimeRangeFilter.after(

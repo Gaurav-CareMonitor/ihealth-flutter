@@ -16,6 +16,9 @@ output:
     path: lib/health_connect.dart
     structure: single_file
 
+enable_experiment:
+  - interface_implementation
+
 classes:
   - 'android.content.Context'
   - 'java.time.Instant'
@@ -28,4 +31,5 @@ classes:
   - 'com.ihealth.communication.utils.Log'
   - 'java.io.InputStream'
   - 'android.util.Log'
+  - 'java.io.InputStream'
 
