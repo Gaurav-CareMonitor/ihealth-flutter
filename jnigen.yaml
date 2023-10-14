@@ -17,17 +17,14 @@ output:
     structure: single_file
 
 classes:
-  - 'androidx.health.connect.client.HealthConnectClient'
   - 'android.content.Context'
-  - 'androidx.health.connect.client.request.AggregateRequest'
-  - 'androidx.health.connect.client.time.TimeRangeFilter'
-  - 'androidx.health.connect.client.aggregate.AggregationResult'
-  - 'androidx.health.connect.client.aggregate.AggregateMetric'
-  - 'androidx.health.connect.client.records.StepsRecord'
   - 'java.time.Instant'
   - 'com.ihealth.communication.control.Bg1Control'
   - 'com.ihealth.communication.control.Bg1Profile'
   - 'com.ihealth.communication.manager.DiscoveryTypeEnum'
   - 'com.ihealth.communication.manager.iHealthDevicesCallback'
   - 'com.ihealth.communication.manager.iHealthDevicesManager'
+  - 'android.content.Context'
+  - 'com.ihealth.communication.utils.Log'
+  - 'java.io.InputStream'
 
