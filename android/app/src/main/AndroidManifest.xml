@@ -50,6 +50,15 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+        <service
+            android:name="com.ido.ble.bluetooth.DeviceConnectService"
+            android:exported="false" />
+        <service
+            android:name="com.ido.ble.dfu.DFUService"
+            android:enabled="true"
+            android:exported="false" />
+            
     </application>
     <!-- Check whether Health Connect is installed or not -->
     <queries>

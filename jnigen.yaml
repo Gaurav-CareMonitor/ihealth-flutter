@@ -27,4 +27,5 @@ classes:
   - 'android.content.Context'
   - 'com.ihealth.communication.utils.Log'
   - 'java.io.InputStream'
+  - 'android.util.Log'
 

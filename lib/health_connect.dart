@@ -5,6 +5,7 @@
 // ignore_for_file: camel_case_types
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: file_names
+// ignore_for_file: lines_longer_than_80_chars
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: non_constant_identifier_names
 // ignore_for_file: overridden_fields
@@ -12,6 +13,7 @@
 // ignore_for_file: unused_element
 // ignore_for_file: unused_field
 // ignore_for_file: unused_import
+// ignore_for_file: unused_local_variable
 // ignore_for_file: unused_shown_name
 
 import "dart:isolate" show ReceivePort;
@@ -24,549 +26,41 @@ import "package:jni/jni.dart" as jni;
 final ffi.Pointer<T> Function<T extends ffi.NativeType>(String sym) jniLookup =
     ProtectedJniExtensions.initGeneratedLibrary("health_connect");
 
-/// from: androidx.health.connect.client.HealthConnectClient
-class HealthConnectClient extends jni.JObject {
+/// from: android.content.Context$BindServiceFlags
+class Context_BindServiceFlags extends jni.JObject {
   @override
-  late final jni.JObjType<HealthConnectClient> $type = type;
+  late final jni.JObjType<Context_BindServiceFlags> $type = type;
 
-  HealthConnectClient.fromRef(
+  Context_BindServiceFlags.fromRef(
     jni.JObjectPtr ref,
   ) : super.fromRef(ref);
 
   /// The type which includes information such as the signature of this class.
-  static const type = $HealthConnectClientType();
-  static final _get_Companion =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
-              "get_HealthConnectClient__Companion")
-          .asFunction<jni.JniResult Function()>();
+  static const type = $Context_BindServiceFlagsType();
+  static final _of =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function(ffi.Int64)>>(
+              "Context_BindServiceFlags__of")
+          .asFunction<jni.JniResult Function(int)>();
 
-  /// from: static public final androidx.health.connect.client.HealthConnectClient$Companion Companion
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static jni.JObject get Companion =>
-      const jni.JObjectType().fromRef(_get_Companion().object);
-
-  /// from: static public final java.lang.String DEFAULT_PROVIDER_PACKAGE_NAME
-  static const DEFAULT_PROVIDER_PACKAGE_NAME =
-      r"""com.google.android.apps.healthdata""";
-
-  /// from: static public final int DEFAULT_PROVIDER_MIN_VERSION_CODE
-  static const DEFAULT_PROVIDER_MIN_VERSION_CODE = 35000;
-
-  /// from: static public final int SDK_UNAVAILABLE
-  static const SDK_UNAVAILABLE = 1;
-
-  /// from: static public final int SDK_UNAVAILABLE_PROVIDER_UPDATE_REQUIRED
-  static const SDK_UNAVAILABLE_PROVIDER_UPDATE_REQUIRED = 2;
-
-  /// from: static public final int SDK_AVAILABLE
-  static const SDK_AVAILABLE = 3;
-
-  /// from: static public final java.lang.String HEALTH_CONNECT_CLIENT_TAG
-  static const HEALTH_CONNECT_CLIENT_TAG = r"""HealthConnectClient""";
-
-  static final _getPermissionController = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
-          "HealthConnectClient__getPermissionController")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract androidx.health.connect.client.PermissionController getPermissionController()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getPermissionController() {
-    return const jni.JObjectType()
-        .fromRef(_getPermissionController(reference).object);
-  }
-
-  static final _insertRecords = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("HealthConnectClient__insertRecords")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract java.lang.Object insertRecords(java.util.List list, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JObject> insertRecords(
-    jni.JList<jni.JObject> list,
-  ) async {
-    final $p = ReceivePort();
-    final $c = jni.JObject.fromRef(jni.Jni.newPortContinuation($p));
-    _insertRecords(reference, list.reference, $c.reference).object;
-    final $o = jni.JObjectPtr.fromAddress(await $p.first);
-    final $k = const jni.JObjectType().getClass().reference;
-    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
-      throw "Failed";
-    }
-    return const jni.JObjectType().fromRef($o);
-  }
-
-  static final _updateRecords = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("HealthConnectClient__updateRecords")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract java.lang.Object updateRecords(java.util.List list, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JObject> updateRecords(
-    jni.JList<jni.JObject> list,
-  ) async {
-    final $p = ReceivePort();
-    final $c = jni.JObject.fromRef(jni.Jni.newPortContinuation($p));
-    _updateRecords(reference, list.reference, $c.reference).object;
-    final $o = jni.JObjectPtr.fromAddress(await $p.first);
-    final $k = const jni.JObjectType().getClass().reference;
-    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
-      throw "Failed";
-    }
-    return const jni.JObjectType().fromRef($o);
-  }
-
-  static final _deleteRecords = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("HealthConnectClient__deleteRecords")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract java.lang.Object deleteRecords(kotlin.reflect.KClass kClass, java.util.List list, java.util.List list1, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JObject> deleteRecords(
-    jni.JObject kClass,
-    jni.JList<jni.JString> list,
-    jni.JList<jni.JString> list1,
-  ) async {
-    final $p = ReceivePort();
-    final $c = jni.JObject.fromRef(jni.Jni.newPortContinuation($p));
-    _deleteRecords(reference, kClass.reference, list.reference, list1.reference,
-            $c.reference)
-        .object;
-    final $o = jni.JObjectPtr.fromAddress(await $p.first);
-    final $k = const jni.JObjectType().getClass().reference;
-    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
-      throw "Failed";
-    }
-    return const jni.JObjectType().fromRef($o);
-  }
-
-  static final _deleteRecords1 = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(
-                      ffi.Pointer<ffi.Void>,
-                      ffi.Pointer<ffi.Void>,
-                      ffi.Pointer<ffi.Void>,
-                      ffi.Pointer<ffi.Void>)>>(
-          "HealthConnectClient__deleteRecords1")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract java.lang.Object deleteRecords(kotlin.reflect.KClass kClass, androidx.health.connect.client.time.TimeRangeFilter timeRangeFilter, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JObject> deleteRecords1(
-    jni.JObject kClass,
-    TimeRangeFilter timeRangeFilter,
-  ) async {
-    final $p = ReceivePort();
-    final $c = jni.JObject.fromRef(jni.Jni.newPortContinuation($p));
-    _deleteRecords1(reference, kClass.reference, timeRangeFilter.reference,
-            $c.reference)
-        .object;
-    final $o = jni.JObjectPtr.fromAddress(await $p.first);
-    final $k = const jni.JObjectType().getClass().reference;
-    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
-      throw "Failed";
-    }
-    return const jni.JObjectType().fromRef($o);
-  }
-
-  static final _readRecord = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("HealthConnectClient__readRecord")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract java.lang.Object readRecord(kotlin.reflect.KClass kClass, java.lang.String string, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JObject> readRecord<$T extends jni.JObject>(
-    jni.JObject kClass,
-    jni.JString string, {
-    required jni.JObjType<$T> T,
-  }) async {
-    final $p = ReceivePort();
-    final $c = jni.JObject.fromRef(jni.Jni.newPortContinuation($p));
-    _readRecord(reference, kClass.reference, string.reference, $c.reference)
-        .object;
-    final $o = jni.JObjectPtr.fromAddress(await $p.first);
-    final $k = const jni.JObjectType().getClass().reference;
-    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
-      throw "Failed";
-    }
-    return const jni.JObjectType().fromRef($o);
-  }
-
-  static final _readRecords = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("HealthConnectClient__readRecords")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract java.lang.Object readRecords(androidx.health.connect.client.request.ReadRecordsRequest readRecordsRequest, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JObject> readRecords<$T extends jni.JObject>(
-    jni.JObject readRecordsRequest, {
-    required jni.JObjType<$T> T,
-  }) async {
-    final $p = ReceivePort();
-    final $c = jni.JObject.fromRef(jni.Jni.newPortContinuation($p));
-    _readRecords(reference, readRecordsRequest.reference, $c.reference).object;
-    final $o = jni.JObjectPtr.fromAddress(await $p.first);
-    final $k = const jni.JObjectType().getClass().reference;
-    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
-      throw "Failed";
-    }
-    return const jni.JObjectType().fromRef($o);
-  }
-
-  static final _aggregate = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("HealthConnectClient__aggregate")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract java.lang.Object aggregate(androidx.health.connect.client.request.AggregateRequest aggregateRequest, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<AggregationResult> aggregate(
-    AggregateRequest aggregateRequest,
-  ) async {
-    final $p = ReceivePort();
-    final $c = jni.JObject.fromRef(jni.Jni.newPortContinuation($p));
-    _aggregate(reference, aggregateRequest.reference, $c.reference).object;
-    final $o = jni.JObjectPtr.fromAddress(await $p.first);
-    final $k = const $AggregationResultType().getClass().reference;
-    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
-      throw "Failed";
-    }
-    return const $AggregationResultType().fromRef($o);
-  }
-
-  static final _aggregateGroupByDuration = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
-          "HealthConnectClient__aggregateGroupByDuration")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract java.lang.Object aggregateGroupByDuration(androidx.health.connect.client.request.AggregateGroupByDurationRequest aggregateGroupByDurationRequest, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JList<jni.JObject>> aggregateGroupByDuration(
-    jni.JObject aggregateGroupByDurationRequest,
-  ) async {
-    final $p = ReceivePort();
-    final $c = jni.JObject.fromRef(jni.Jni.newPortContinuation($p));
-    _aggregateGroupByDuration(
-            reference, aggregateGroupByDurationRequest.reference, $c.reference)
-        .object;
-    final $o = jni.JObjectPtr.fromAddress(await $p.first);
-    final $k = const jni.JListType(jni.JObjectType()).getClass().reference;
-    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
-      throw "Failed";
-    }
-    return const jni.JListType(jni.JObjectType()).fromRef($o);
-  }
-
-  static final _aggregateGroupByPeriod = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
-          "HealthConnectClient__aggregateGroupByPeriod")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract java.lang.Object aggregateGroupByPeriod(androidx.health.connect.client.request.AggregateGroupByPeriodRequest aggregateGroupByPeriodRequest, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JList<jni.JObject>> aggregateGroupByPeriod(
-    jni.JObject aggregateGroupByPeriodRequest,
-  ) async {
-    final $p = ReceivePort();
-    final $c = jni.JObject.fromRef(jni.Jni.newPortContinuation($p));
-    _aggregateGroupByPeriod(
-            reference, aggregateGroupByPeriodRequest.reference, $c.reference)
-        .object;
-    final $o = jni.JObjectPtr.fromAddress(await $p.first);
-    final $k = const jni.JListType(jni.JObjectType()).getClass().reference;
-    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
-      throw "Failed";
-    }
-    return const jni.JListType(jni.JObjectType()).fromRef($o);
-  }
-
-  static final _getChangesToken = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
-          "HealthConnectClient__getChangesToken")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract java.lang.Object getChangesToken(androidx.health.connect.client.request.ChangesTokenRequest changesTokenRequest, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JString> getChangesToken(
-    jni.JObject changesTokenRequest,
-  ) async {
-    final $p = ReceivePort();
-    final $c = jni.JObject.fromRef(jni.Jni.newPortContinuation($p));
-    _getChangesToken(reference, changesTokenRequest.reference, $c.reference)
-        .object;
-    final $o = jni.JObjectPtr.fromAddress(await $p.first);
-    final $k = const jni.JStringType().getClass().reference;
-    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
-      throw "Failed";
-    }
-    return const jni.JStringType().fromRef($o);
-  }
-
-  static final _registerForDataNotifications = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(
-                      ffi.Pointer<ffi.Void>,
-                      ffi.Pointer<ffi.Void>,
-                      ffi.Pointer<ffi.Void>,
-                      ffi.Pointer<ffi.Void>)>>(
-          "HealthConnectClient__registerForDataNotifications")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract java.lang.Object registerForDataNotifications(java.lang.String string, java.lang.Iterable iterable, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JObject> registerForDataNotifications(
-    jni.JString string,
-    jni.JObject iterable,
-  ) async {
-    final $p = ReceivePort();
-    final $c = jni.JObject.fromRef(jni.Jni.newPortContinuation($p));
-    _registerForDataNotifications(
-            reference, string.reference, iterable.reference, $c.reference)
-        .object;
-    final $o = jni.JObjectPtr.fromAddress(await $p.first);
-    final $k = const jni.JObjectType().getClass().reference;
-    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
-      throw "Failed";
-    }
-    return const jni.JObjectType().fromRef($o);
-  }
-
-  static final _unregisterFromDataNotifications = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
-          "HealthConnectClient__unregisterFromDataNotifications")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract java.lang.Object unregisterFromDataNotifications(java.lang.String string, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JObject> unregisterFromDataNotifications(
-    jni.JString string,
-  ) async {
-    final $p = ReceivePort();
-    final $c = jni.JObject.fromRef(jni.Jni.newPortContinuation($p));
-    _unregisterFromDataNotifications(reference, string.reference, $c.reference)
-        .object;
-    final $o = jni.JObjectPtr.fromAddress(await $p.first);
-    final $k = const jni.JObjectType().getClass().reference;
-    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
-      throw "Failed";
-    }
-    return const jni.JObjectType().fromRef($o);
-  }
-
-  static final _getChanges = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("HealthConnectClient__getChanges")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: public abstract java.lang.Object getChanges(java.lang.String string, kotlin.coroutines.Continuation continuation)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Future<jni.JObject> getChanges(
-    jni.JString string,
-  ) async {
-    final $p = ReceivePort();
-    final $c = jni.JObject.fromRef(jni.Jni.newPortContinuation($p));
-    _getChanges(reference, string.reference, $c.reference).object;
-    final $o = jni.JObjectPtr.fromAddress(await $p.first);
-    final $k = const jni.JObjectType().getClass().reference;
-    if (!jni.Jni.env.IsInstanceOf($o, $k)) {
-      throw "Failed";
-    }
-    return const jni.JObjectType().fromRef($o);
-  }
-
-  static final _getHealthConnectSettingsAction =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
-              "HealthConnectClient__getHealthConnectSettingsAction")
-          .asFunction<jni.JniResult Function()>();
-
-  /// from: static public java.lang.String getHealthConnectSettingsAction()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static jni.JString getHealthConnectSettingsAction() {
-    return const jni.JStringType()
-        .fromRef(_getHealthConnectSettingsAction().object);
-  }
-
-  static final _sdkStatus = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("HealthConnectClient__sdkStatus")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public int sdkStatus(android.content.Context context, java.lang.String string)
-  static int sdkStatus(
-    Context context,
-    jni.JString string,
+  /// from: static public android.content.Context$BindServiceFlags of(long j)
+  /// The returned object must be released after use, by calling the [release] method.
+  static Context_BindServiceFlags of(
+    int j,
   ) {
-    return _sdkStatus(context.reference, string.reference).integer;
-  }
-
-  static final _isApiSupported =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
-              "HealthConnectClient__isApiSupported")
-          .asFunction<jni.JniResult Function()>();
-
-  /// from: static public boolean isApiSupported()
-  static bool isApiSupported() {
-    return _isApiSupported().boolean;
-  }
-
-  static final _isProviderAvailable = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(
-                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
-          "HealthConnectClient__isProviderAvailable")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public boolean isProviderAvailable(android.content.Context context, java.lang.String string)
-  static bool isProviderAvailable(
-    Context context,
-    jni.JString string,
-  ) {
-    return _isProviderAvailable(context.reference, string.reference).boolean;
-  }
-
-  static final _getOrCreate = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("HealthConnectClient__getOrCreate")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public androidx.health.connect.client.HealthConnectClient getOrCreate(android.content.Context context, java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static HealthConnectClient getOrCreate(
-    Context context,
-    jni.JString string,
-  ) {
-    return const $HealthConnectClientType()
-        .fromRef(_getOrCreate(context.reference, string.reference).object);
-  }
-
-  static final _sdkStatus1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("HealthConnectClient__sdkStatus1")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public int sdkStatus(android.content.Context context)
-  static int sdkStatus1(
-    Context context,
-  ) {
-    return _sdkStatus1(context.reference).integer;
-  }
-
-  static final _isProviderAvailable1 = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
-          "HealthConnectClient__isProviderAvailable1")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public boolean isProviderAvailable(android.content.Context context)
-  static bool isProviderAvailable1(
-    Context context,
-  ) {
-    return _isProviderAvailable1(context.reference).boolean;
-  }
-
-  static final _getOrCreate1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("HealthConnectClient__getOrCreate1")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public androidx.health.connect.client.HealthConnectClient getOrCreate(android.content.Context context)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static HealthConnectClient getOrCreate1(
-    Context context,
-  ) {
-    return const $HealthConnectClientType()
-        .fromRef(_getOrCreate1(context.reference).object);
+    return const $Context_BindServiceFlagsType().fromRef(_of(j).object);
   }
 }
 
-class $HealthConnectClientType extends jni.JObjType<HealthConnectClient> {
-  const $HealthConnectClientType();
+final class $Context_BindServiceFlagsType
+    extends jni.JObjType<Context_BindServiceFlags> {
+  const $Context_BindServiceFlagsType();
 
   @override
-  String get signature =>
-      r"Landroidx/health/connect/client/HealthConnectClient;";
+  String get signature => r"Landroid/content/Context$BindServiceFlags;";
 
   @override
-  HealthConnectClient fromRef(jni.JObjectPtr ref) =>
-      HealthConnectClient.fromRef(ref);
+  Context_BindServiceFlags fromRef(jni.JObjectPtr ref) =>
+      Context_BindServiceFlags.fromRef(ref);
 
   @override
   jni.JObjType get superType => const jni.JObjectType();
@@ -575,12 +69,12 @@ class $HealthConnectClientType extends jni.JObjType<HealthConnectClient> {
   final superCount = 1;
 
   @override
-  int get hashCode => ($HealthConnectClientType).hashCode;
+  int get hashCode => ($Context_BindServiceFlagsType).hashCode;
 
   @override
   bool operator ==(Object other) {
-    return other.runtimeType == ($HealthConnectClientType) &&
-        other is $HealthConnectClientType;
+    return other.runtimeType == ($Context_BindServiceFlagsType) &&
+        other is $Context_BindServiceFlagsType;
   }
 }
 
@@ -629,6 +123,9 @@ class Context extends jni.JObject {
   /// from: static public final int BIND_ADJUST_WITH_ACTIVITY
   static const BIND_ADJUST_WITH_ACTIVITY = 128;
 
+  /// from: static public final int BIND_ALLOW_ACTIVITY_STARTS
+  static const BIND_ALLOW_ACTIVITY_STARTS = 512;
+
   /// from: static public final int BIND_ALLOW_OOM_MANAGEMENT
   static const BIND_ALLOW_OOM_MANAGEMENT = 16;
 
@@ -641,6 +138,9 @@ class Context extends jni.JObject {
   /// from: static public final int BIND_EXTERNAL_SERVICE
   static const BIND_EXTERNAL_SERVICE = -2147483648;
 
+  /// from: static public final long BIND_EXTERNAL_SERVICE_LONG
+  static const BIND_EXTERNAL_SERVICE_LONG = 4611686018427387904;
+
   /// from: static public final int BIND_IMPORTANT
   static const BIND_IMPORTANT = 64;
 
@@ -652,6 +152,9 @@ class Context extends jni.JObject {
 
   /// from: static public final int BIND_NOT_PERCEPTIBLE
   static const BIND_NOT_PERCEPTIBLE = 256;
+
+  /// from: static public final int BIND_SHARED_ISOLATED_PROCESS
+  static const BIND_SHARED_ISOLATED_PROCESS = 8192;
 
   /// from: static public final int BIND_WAIVE_PRIORITY
   static const BIND_WAIVE_PRIORITY = 32;
@@ -702,8 +205,20 @@ class Context extends jni.JObject {
   /// from: static public final int CONTEXT_RESTRICTED
   static const CONTEXT_RESTRICTED = 4;
 
+  /// from: static public final java.lang.String CREDENTIAL_SERVICE
+  static const CREDENTIAL_SERVICE = r"""credential""";
+
   /// from: static public final java.lang.String CROSS_PROFILE_APPS_SERVICE
   static const CROSS_PROFILE_APPS_SERVICE = r"""crossprofileapps""";
+
+  /// from: static public final int DEVICE_ID_DEFAULT
+  static const DEVICE_ID_DEFAULT = 0;
+
+  /// from: static public final int DEVICE_ID_INVALID
+  static const DEVICE_ID_INVALID = -1;
+
+  /// from: static public final java.lang.String DEVICE_LOCK_SERVICE
+  static const DEVICE_LOCK_SERVICE = r"""device_lock""";
 
   /// from: static public final java.lang.String DEVICE_POLICY_SERVICE
   static const DEVICE_POLICY_SERVICE = r"""device_policy""";
@@ -735,8 +250,14 @@ class Context extends jni.JObject {
   /// from: static public final java.lang.String GAME_SERVICE
   static const GAME_SERVICE = r"""game""";
 
+  /// from: static public final java.lang.String GRAMMATICAL_INFLECTION_SERVICE
+  static const GRAMMATICAL_INFLECTION_SERVICE = r"""grammatical_inflection""";
+
   /// from: static public final java.lang.String HARDWARE_PROPERTIES_SERVICE
   static const HARDWARE_PROPERTIES_SERVICE = r"""hardware_properties""";
+
+  /// from: static public final java.lang.String HEALTHCONNECT_SERVICE
+  static const HEALTHCONNECT_SERVICE = r"""healthconnect""";
 
   /// from: static public final java.lang.String INPUT_METHOD_SERVICE
   static const INPUT_METHOD_SERVICE = r"""input_method""";
@@ -815,6 +336,9 @@ class Context extends jni.JObject {
 
   /// from: static public final java.lang.String NSD_SERVICE
   static const NSD_SERVICE = r"""servicediscovery""";
+
+  /// from: static public final java.lang.String OVERLAY_SERVICE
+  static const OVERLAY_SERVICE = r"""overlay""";
 
   /// from: static public final java.lang.String PEOPLE_SERVICE
   static const PEOPLE_SERVICE = r"""people""";
@@ -907,6 +431,9 @@ class Context extends jni.JObject {
   /// from: static public final java.lang.String VIBRATOR_SERVICE
   static const VIBRATOR_SERVICE = r"""vibrator""";
 
+  /// from: static public final java.lang.String VIRTUAL_DEVICE_SERVICE
+  static const VIRTUAL_DEVICE_SERVICE = r"""virtualdevice""";
+
   /// from: static public final java.lang.String VPN_MANAGEMENT_SERVICE
   static const VPN_MANAGEMENT_SERVICE = r"""vpn_management""";
 
@@ -928,98 +455,98 @@ class Context extends jni.JObject {
   /// from: static public final java.lang.String WINDOW_SERVICE
   static const WINDOW_SERVICE = r"""window""";
 
-  static final _ctor =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>("Context__ctor")
+  static final _new0 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>("Context__new0")
           .asFunction<jni.JniResult Function()>();
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Context() {
-    return Context.fromRef(_ctor().object);
+    return Context.fromRef(_new0().object);
   }
 
   static final _getAssets = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getAssets")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getAssets")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.res.AssetManager getAssets()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getAssets() {
     return const jni.JObjectType().fromRef(_getAssets(reference).object);
   }
 
   static final _getResources = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getResources")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getResources")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.res.Resources getResources()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getResources() {
     return const jni.JObjectType().fromRef(_getResources(reference).object);
   }
 
   static final _getPackageManager = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getPackageManager")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getPackageManager")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.pm.PackageManager getPackageManager()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getPackageManager() {
     return const jni.JObjectType()
         .fromRef(_getPackageManager(reference).object);
   }
 
   static final _getContentResolver = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getContentResolver")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getContentResolver")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.ContentResolver getContentResolver()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getContentResolver() {
     return const jni.JObjectType()
         .fromRef(_getContentResolver(reference).object);
   }
 
   static final _getMainLooper = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getMainLooper")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getMainLooper")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.os.Looper getMainLooper()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getMainLooper() {
     return const jni.JObjectType().fromRef(_getMainLooper(reference).object);
   }
 
   static final _getMainExecutor = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getMainExecutor")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getMainExecutor")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.util.concurrent.Executor getMainExecutor()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getMainExecutor() {
     return const jni.JObjectType().fromRef(_getMainExecutor(reference).object);
   }
 
   static final _getApplicationContext = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getApplicationContext")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getApplicationContext")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.Context getApplicationContext()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Context getApplicationContext() {
     return const $ContextType()
         .fromRef(_getApplicationContext(reference).object);
@@ -1067,7 +594,7 @@ class Context extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final java.lang.CharSequence getText(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getText(
     int i,
   ) {
@@ -1081,7 +608,7 @@ class Context extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final java.lang.String getString(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString getString(
     int i,
   ) {
@@ -1097,7 +624,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final java.lang.String getString(int i, java.lang.Object[] objects)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString getString1(
     int i,
     jni.JArray<jni.JObject> objects,
@@ -1126,7 +653,7 @@ class Context extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final android.graphics.drawable.Drawable getDrawable(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getDrawable(
     int i,
   ) {
@@ -1140,7 +667,7 @@ class Context extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public final android.content.res.ColorStateList getColorStateList(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getColorStateList(
     int i,
   ) {
@@ -1162,13 +689,13 @@ class Context extends jni.JObject {
   }
 
   static final _getTheme = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getTheme")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getTheme")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.res.Resources$Theme getTheme()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getTheme() {
     return const jni.JObjectType().fromRef(_getTheme(reference).object);
   }
@@ -1182,7 +709,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final android.content.res.TypedArray obtainStyledAttributes(int[] is)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject obtainStyledAttributes(
     jni.JArray<jni.jint> is0,
   ) {
@@ -1199,7 +726,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final android.content.res.TypedArray obtainStyledAttributes(int i, int[] is)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject obtainStyledAttributes1(
     int i,
     jni.JArray<jni.jint> is0,
@@ -1219,7 +746,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public final android.content.res.TypedArray obtainStyledAttributes(android.util.AttributeSet attributeSet, int[] is)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject obtainStyledAttributes2(
     jni.JObject attributeSet,
     jni.JArray<jni.jint> is0,
@@ -1242,7 +769,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, int)>();
 
   /// from: public final android.content.res.TypedArray obtainStyledAttributes(android.util.AttributeSet attributeSet, int[] is, int i, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject obtainStyledAttributes3(
     jni.JObject attributeSet,
     jni.JArray<jni.jint> is0,
@@ -1255,113 +782,113 @@ class Context extends jni.JObject {
   }
 
   static final _getClassLoader = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getClassLoader")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getClassLoader")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.ClassLoader getClassLoader()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getClassLoader() {
     return const jni.JObjectType().fromRef(_getClassLoader(reference).object);
   }
 
   static final _getPackageName = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getPackageName")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getPackageName")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.String getPackageName()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString getPackageName() {
     return const jni.JStringType().fromRef(_getPackageName(reference).object);
   }
 
   static final _getOpPackageName = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getOpPackageName")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getOpPackageName")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getOpPackageName()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString getOpPackageName() {
     return const jni.JStringType().fromRef(_getOpPackageName(reference).object);
   }
 
   static final _getAttributionTag = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getAttributionTag")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getAttributionTag")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String getAttributionTag()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString getAttributionTag() {
     return const jni.JStringType()
         .fromRef(_getAttributionTag(reference).object);
   }
 
   static final _getAttributionSource = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getAttributionSource")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getAttributionSource")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.AttributionSource getAttributionSource()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getAttributionSource() {
     return const jni.JObjectType()
         .fromRef(_getAttributionSource(reference).object);
   }
 
   static final _getParams = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getParams")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getParams")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.ContextParams getParams()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getParams() {
     return const jni.JObjectType().fromRef(_getParams(reference).object);
   }
 
   static final _getApplicationInfo = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getApplicationInfo")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getApplicationInfo")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.pm.ApplicationInfo getApplicationInfo()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getApplicationInfo() {
     return const jni.JObjectType()
         .fromRef(_getApplicationInfo(reference).object);
   }
 
   static final _getPackageResourcePath = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getPackageResourcePath")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getPackageResourcePath")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.String getPackageResourcePath()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString getPackageResourcePath() {
     return const jni.JStringType()
         .fromRef(_getPackageResourcePath(reference).object);
   }
 
   static final _getPackageCodePath = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getPackageCodePath")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getPackageCodePath")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.String getPackageCodePath()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString getPackageCodePath() {
     return const jni.JStringType()
         .fromRef(_getPackageCodePath(reference).object);
@@ -1378,7 +905,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public abstract android.content.SharedPreferences getSharedPreferences(java.lang.String string, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getSharedPreferences(
     jni.JString string,
     int i,
@@ -1431,7 +958,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.FileInputStream openFileInput(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject openFileInput(
     jni.JString string,
   ) {
@@ -1448,7 +975,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public abstract java.io.FileOutputStream openFileOutput(java.lang.String string, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject openFileOutput(
     jni.JString string,
     int i,
@@ -1481,7 +1008,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getFileStreamPath(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getFileStreamPath(
     jni.JString string,
   ) {
@@ -1490,37 +1017,37 @@ class Context extends jni.JObject {
   }
 
   static final _getDataDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getDataDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getDataDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getDataDir()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getDataDir() {
     return const jni.JObjectType().fromRef(_getDataDir(reference).object);
   }
 
   static final _getFilesDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getFilesDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getFilesDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getFilesDir()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getFilesDir() {
     return const jni.JObjectType().fromRef(_getFilesDir(reference).object);
   }
 
   static final _getNoBackupFilesDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getNoBackupFilesDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getNoBackupFilesDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getNoBackupFilesDir()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getNoBackupFilesDir() {
     return const jni.JObjectType()
         .fromRef(_getNoBackupFilesDir(reference).object);
@@ -1535,7 +1062,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getExternalFilesDir(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getExternalFilesDir(
     jni.JString string,
   ) {
@@ -1552,7 +1079,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File[] getExternalFilesDirs(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.JObject> getExternalFilesDirs(
     jni.JString string,
   ) {
@@ -1561,101 +1088,101 @@ class Context extends jni.JObject {
   }
 
   static final _getObbDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getObbDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getObbDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getObbDir()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getObbDir() {
     return const jni.JObjectType().fromRef(_getObbDir(reference).object);
   }
 
   static final _getObbDirs = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getObbDirs")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getObbDirs")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File[] getObbDirs()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.JObject> getObbDirs() {
     return const jni.JArrayType(jni.JObjectType())
         .fromRef(_getObbDirs(reference).object);
   }
 
   static final _getCacheDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getCacheDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getCacheDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getCacheDir()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getCacheDir() {
     return const jni.JObjectType().fromRef(_getCacheDir(reference).object);
   }
 
   static final _getCodeCacheDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getCodeCacheDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getCodeCacheDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getCodeCacheDir()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getCodeCacheDir() {
     return const jni.JObjectType().fromRef(_getCodeCacheDir(reference).object);
   }
 
   static final _getExternalCacheDir = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getExternalCacheDir")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getExternalCacheDir")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getExternalCacheDir()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getExternalCacheDir() {
     return const jni.JObjectType()
         .fromRef(_getExternalCacheDir(reference).object);
   }
 
   static final _getExternalCacheDirs = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getExternalCacheDirs")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getExternalCacheDirs")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File[] getExternalCacheDirs()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.JObject> getExternalCacheDirs() {
     return const jni.JArrayType(jni.JObjectType())
         .fromRef(_getExternalCacheDirs(reference).object);
   }
 
   static final _getExternalMediaDirs = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getExternalMediaDirs")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getExternalMediaDirs")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File[] getExternalMediaDirs()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.JObject> getExternalMediaDirs() {
     return const jni.JArrayType(jni.JObjectType())
         .fromRef(_getExternalMediaDirs(reference).object);
   }
 
   static final _fileList = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__fileList")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__fileList")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.String[] fileList()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.JString> fileList() {
     return const jni.JArrayType(jni.JStringType())
         .fromRef(_fileList(reference).object);
@@ -1670,7 +1197,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public abstract java.io.File getDir(java.lang.String string, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getDir(
     jni.JString string,
     int i,
@@ -1691,7 +1218,7 @@ class Context extends jni.JObject {
               int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.database.sqlite.SQLiteDatabase openOrCreateDatabase(java.lang.String string, int i, android.database.sqlite.SQLiteDatabase$CursorFactory cursorFactory)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject openOrCreateDatabase(
     jni.JString string,
     int i,
@@ -1715,7 +1242,7 @@ class Context extends jni.JObject {
               int, ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.database.sqlite.SQLiteDatabase openOrCreateDatabase(java.lang.String string, int i, android.database.sqlite.SQLiteDatabase$CursorFactory cursorFactory, android.database.DatabaseErrorHandler databaseErrorHandler)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject openOrCreateDatabase1(
     jni.JString string,
     int i,
@@ -1774,7 +1301,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.io.File getDatabasePath(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getDatabasePath(
     jni.JString string,
   ) {
@@ -1783,45 +1310,45 @@ class Context extends jni.JObject {
   }
 
   static final _databaseList = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__databaseList")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__databaseList")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.String[] databaseList()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.JString> databaseList() {
     return const jni.JArrayType(jni.JStringType())
         .fromRef(_databaseList(reference).object);
   }
 
   static final _getWallpaper = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getWallpaper")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getWallpaper")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.graphics.drawable.Drawable getWallpaper()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getWallpaper() {
     return const jni.JObjectType().fromRef(_getWallpaper(reference).object);
   }
 
   static final _peekWallpaper = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__peekWallpaper")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__peekWallpaper")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.graphics.drawable.Drawable peekWallpaper()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject peekWallpaper() {
     return const jni.JObjectType().fromRef(_peekWallpaper(reference).object);
   }
 
   static final _getWallpaperDesiredMinimumWidth = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Context__getWallpaperDesiredMinimumWidth")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -1831,8 +1358,8 @@ class Context extends jni.JObject {
   }
 
   static final _getWallpaperDesiredMinimumHeight = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Context__getWallpaperDesiredMinimumHeight")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
@@ -1866,15 +1393,15 @@ class Context extends jni.JObject {
 
   /// from: public abstract void setWallpaper(java.io.InputStream inputStream)
   void setWallpaper1(
-    jni.JObject inputStream,
+    InputStream inputStream,
   ) {
     return _setWallpaper1(reference, inputStream.reference).check();
   }
 
   static final _clearWallpaper = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__clearWallpaper")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__clearWallpaper")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void clearWallpaper()
@@ -2057,6 +1584,28 @@ class Context extends jni.JObject {
         .check();
   }
 
+  static final _sendBroadcast2 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Context__sendBroadcast2")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void sendBroadcast(android.content.Intent intent, java.lang.String string, android.os.Bundle bundle)
+  void sendBroadcast2(
+    jni.JObject intent,
+    jni.JString string,
+    jni.JObject bundle,
+  ) {
+    return _sendBroadcast2(
+            reference, intent.reference, string.reference, bundle.reference)
+        .check();
+  }
+
   static final _sendOrderedBroadcast = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(
@@ -2082,11 +1631,33 @@ class Context extends jni.JObject {
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Context__sendOrderedBroadcast1")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void sendOrderedBroadcast(android.content.Intent intent, java.lang.String string, android.os.Bundle bundle)
+  void sendOrderedBroadcast1(
+    jni.JObject intent,
+    jni.JString string,
+    jni.JObject bundle,
+  ) {
+    return _sendOrderedBroadcast1(
+            reference, intent.reference, string.reference, bundle.reference)
+        .check();
+  }
+
+  static final _sendOrderedBroadcast2 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
                   ffi.Int32,
                   ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Context__sendOrderedBroadcast1")
+                  ffi.Pointer<ffi.Void>)>>("Context__sendOrderedBroadcast2")
       .asFunction<
           jni.JniResult Function(
               ffi.Pointer<ffi.Void>,
@@ -2099,7 +1670,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract void sendOrderedBroadcast(android.content.Intent intent, java.lang.String string, android.content.BroadcastReceiver broadcastReceiver, android.os.Handler handler, int i, java.lang.String string1, android.os.Bundle bundle)
-  void sendOrderedBroadcast1(
+  void sendOrderedBroadcast2(
     jni.JObject intent,
     jni.JString string,
     jni.JObject broadcastReceiver,
@@ -2108,7 +1679,7 @@ class Context extends jni.JObject {
     jni.JString string1,
     jni.JObject bundle,
   ) {
-    return _sendOrderedBroadcast1(
+    return _sendOrderedBroadcast2(
             reference,
             intent.reference,
             string.reference,
@@ -2117,6 +1688,54 @@ class Context extends jni.JObject {
             i,
             string1.reference,
             bundle.reference)
+        .check();
+  }
+
+  static final _sendOrderedBroadcast3 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Int32,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Context__sendOrderedBroadcast3")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              int,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void sendOrderedBroadcast(android.content.Intent intent, java.lang.String string, android.os.Bundle bundle, android.content.BroadcastReceiver broadcastReceiver, android.os.Handler handler, int i, java.lang.String string1, android.os.Bundle bundle1)
+  void sendOrderedBroadcast3(
+    jni.JObject intent,
+    jni.JString string,
+    jni.JObject bundle,
+    jni.JObject broadcastReceiver,
+    jni.JObject handler,
+    int i,
+    jni.JString string1,
+    jni.JObject bundle1,
+  ) {
+    return _sendOrderedBroadcast3(
+            reference,
+            intent.reference,
+            string.reference,
+            bundle.reference,
+            broadcastReceiver.reference,
+            handler.reference,
+            i,
+            string1.reference,
+            bundle1.reference)
         .check();
   }
 
@@ -2211,7 +1830,7 @@ class Context extends jni.JObject {
         .check();
   }
 
-  static final _sendOrderedBroadcast2 = jniLookup<
+  static final _sendOrderedBroadcast4 = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(
                   ffi.Pointer<ffi.Void>,
@@ -2222,7 +1841,7 @@ class Context extends jni.JObject {
                   ffi.Pointer<ffi.Void>,
                   ffi.Int32,
                   ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("Context__sendOrderedBroadcast2")
+                  ffi.Pointer<ffi.Void>)>>("Context__sendOrderedBroadcast4")
       .asFunction<
           jni.JniResult Function(
               ffi.Pointer<ffi.Void>,
@@ -2236,7 +1855,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public void sendOrderedBroadcast(android.content.Intent intent, java.lang.String string, java.lang.String string1, android.content.BroadcastReceiver broadcastReceiver, android.os.Handler handler, int i, java.lang.String string2, android.os.Bundle bundle)
-  void sendOrderedBroadcast2(
+  void sendOrderedBroadcast4(
     jni.JObject intent,
     jni.JString string,
     jni.JString string1,
@@ -2246,7 +1865,7 @@ class Context extends jni.JObject {
     jni.JString string2,
     jni.JObject bundle,
   ) {
-    return _sendOrderedBroadcast2(
+    return _sendOrderedBroadcast4(
             reference,
             intent.reference,
             string.reference,
@@ -2444,7 +2063,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.Intent registerReceiver(android.content.BroadcastReceiver broadcastReceiver, android.content.IntentFilter intentFilter)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject registerReceiver(
     jni.JObject broadcastReceiver,
     jni.JObject intentFilter,
@@ -2466,7 +2085,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public abstract android.content.Intent registerReceiver(android.content.BroadcastReceiver broadcastReceiver, android.content.IntentFilter intentFilter, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject registerReceiver1(
     jni.JObject broadcastReceiver,
     jni.JObject intentFilter,
@@ -2494,7 +2113,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.Intent registerReceiver(android.content.BroadcastReceiver broadcastReceiver, android.content.IntentFilter intentFilter, java.lang.String string, android.os.Handler handler)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject registerReceiver2(
     jni.JObject broadcastReceiver,
     jni.JObject intentFilter,
@@ -2529,7 +2148,7 @@ class Context extends jni.JObject {
               int)>();
 
   /// from: public abstract android.content.Intent registerReceiver(android.content.BroadcastReceiver broadcastReceiver, android.content.IntentFilter intentFilter, java.lang.String string, android.os.Handler handler, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject registerReceiver3(
     jni.JObject broadcastReceiver,
     jni.JObject intentFilter,
@@ -2571,7 +2190,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.ComponentName startService(android.content.Intent intent)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject startService(
     jni.JObject intent,
   ) {
@@ -2588,7 +2207,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.ComponentName startForegroundService(android.content.Intent intent)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject startForegroundService(
     jni.JObject intent,
   ) {
@@ -2638,21 +2257,75 @@ class Context extends jni.JObject {
               jni.JniResult Function(
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>,
-                  ffi.Int32,
                   ffi.Pointer<ffi.Void>,
                   ffi.Pointer<ffi.Void>)>>("Context__bindService1")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public boolean bindService(android.content.Intent intent, android.content.ServiceConnection serviceConnection, android.content.Context$BindServiceFlags bindServiceFlags)
+  bool bindService1(
+    jni.JObject intent,
+    jni.JObject serviceConnection,
+    Context_BindServiceFlags bindServiceFlags,
+  ) {
+    return _bindService1(reference, intent.reference,
+            serviceConnection.reference, bindServiceFlags.reference)
+        .boolean;
+  }
+
+  static final _bindService2 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Int32,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Context__bindService2")
       .asFunction<
           jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
               int, ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean bindService(android.content.Intent intent, int i, java.util.concurrent.Executor executor, android.content.ServiceConnection serviceConnection)
-  bool bindService1(
+  bool bindService2(
     jni.JObject intent,
     int i,
     jni.JObject executor,
     jni.JObject serviceConnection,
   ) {
-    return _bindService1(reference, intent.reference, i, executor.reference,
+    return _bindService2(reference, intent.reference, i, executor.reference,
+            serviceConnection.reference)
+        .boolean;
+  }
+
+  static final _bindService3 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Context__bindService3")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public boolean bindService(android.content.Intent intent, android.content.Context$BindServiceFlags bindServiceFlags, java.util.concurrent.Executor executor, android.content.ServiceConnection serviceConnection)
+  bool bindService3(
+    jni.JObject intent,
+    Context_BindServiceFlags bindServiceFlags,
+    jni.JObject executor,
+    jni.JObject serviceConnection,
+  ) {
+    return _bindService3(
+            reference,
+            intent.reference,
+            bindServiceFlags.reference,
+            executor.reference,
             serviceConnection.reference)
         .boolean;
   }
@@ -2688,6 +2361,42 @@ class Context extends jni.JObject {
         .boolean;
   }
 
+  static final _bindIsolatedService1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Context__bindIsolatedService1")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public boolean bindIsolatedService(android.content.Intent intent, android.content.Context$BindServiceFlags bindServiceFlags, java.lang.String string, java.util.concurrent.Executor executor, android.content.ServiceConnection serviceConnection)
+  bool bindIsolatedService1(
+    jni.JObject intent,
+    Context_BindServiceFlags bindServiceFlags,
+    jni.JString string,
+    jni.JObject executor,
+    jni.JObject serviceConnection,
+  ) {
+    return _bindIsolatedService1(
+            reference,
+            intent.reference,
+            bindServiceFlags.reference,
+            string.reference,
+            executor.reference,
+            serviceConnection.reference)
+        .boolean;
+  }
+
   static final _bindServiceAsUser = jniLookup<
           ffi.NativeFunction<
               jni.JniResult Function(
@@ -2709,6 +2418,38 @@ class Context extends jni.JObject {
   ) {
     return _bindServiceAsUser(reference, intent.reference,
             serviceConnection.reference, i, userHandle.reference)
+        .boolean;
+  }
+
+  static final _bindServiceAsUser1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Context__bindServiceAsUser1")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public boolean bindServiceAsUser(android.content.Intent intent, android.content.ServiceConnection serviceConnection, android.content.Context$BindServiceFlags bindServiceFlags, android.os.UserHandle userHandle)
+  bool bindServiceAsUser1(
+    jni.JObject intent,
+    jni.JObject serviceConnection,
+    Context_BindServiceFlags bindServiceFlags,
+    jni.JObject userHandle,
+  ) {
+    return _bindServiceAsUser1(
+            reference,
+            intent.reference,
+            serviceConnection.reference,
+            bindServiceFlags.reference,
+            userHandle.reference)
         .boolean;
   }
 
@@ -2779,7 +2520,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.Object getSystemService(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getSystemService(
     jni.JString string,
   ) {
@@ -2796,7 +2537,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public final T getSystemService(java.lang.Class class)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   $T getSystemService1<$T extends jni.JObject>(
     jni.JObject class0, {
     required jni.JObjType<$T> T,
@@ -2813,7 +2554,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract java.lang.String getSystemServiceName(java.lang.Class class)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString getSystemServiceName(
     jni.JObject class0,
   ) {
@@ -3045,7 +2786,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int, int, int)>();
 
   /// from: public java.lang.Object[] checkUriPermissions(java.util.List list, int i, int i1, int i2)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.jint> checkUriPermissions(
     jni.JList<jni.JObject> list,
     int i,
@@ -3085,7 +2826,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.lang.Object[] checkCallingUriPermissions(java.util.List list, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.jint> checkCallingUriPermissions(
     jni.JList<jni.JObject> list,
     int i,
@@ -3124,7 +2865,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.lang.Object[] checkCallingOrSelfUriPermissions(java.util.List list, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.jint> checkCallingOrSelfUriPermissions(
     jni.JList<jni.JObject> list,
     int i,
@@ -3314,7 +3055,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public abstract android.content.Context createPackageContext(java.lang.String string, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Context createPackageContext(
     jni.JString string,
     int i,
@@ -3332,7 +3073,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.Context createContextForSplit(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Context createContextForSplit(
     jni.JString string,
   ) {
@@ -3350,7 +3091,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.Context createConfigurationContext(android.content.res.Configuration configuration)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Context createConfigurationContext(
     jni.JObject configuration,
   ) {
@@ -3367,12 +3108,27 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.Context createDisplayContext(android.view.Display display)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Context createDisplayContext(
     jni.JObject display,
   ) {
     return const $ContextType()
         .fromRef(_createDisplayContext(reference, display.reference).object);
+  }
+
+  static final _createDeviceContext = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Int32)>>("Context__createDeviceContext")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
+
+  /// from: public android.content.Context createDeviceContext(int i)
+  /// The returned object must be released after use, by calling the [release] method.
+  Context createDeviceContext(
+    int i,
+  ) {
+    return const $ContextType()
+        .fromRef(_createDeviceContext(reference, i).object);
   }
 
   static final _createWindowContext = jniLookup<
@@ -3384,7 +3140,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Context createWindowContext(int i, android.os.Bundle bundle)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Context createWindowContext(
     int i,
     jni.JObject bundle,
@@ -3405,7 +3161,7 @@ class Context extends jni.JObject {
               int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Context createWindowContext(android.view.Display display, int i, android.os.Bundle bundle)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Context createWindowContext1(
     jni.JObject display,
     int i,
@@ -3425,7 +3181,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Context createContext(android.content.ContextParams contextParams)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Context createContext(
     jni.JObject contextParams,
   ) {
@@ -3442,7 +3198,7 @@ class Context extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.content.Context createAttributionContext(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Context createAttributionContext(
     jni.JString string,
   ) {
@@ -3451,34 +3207,81 @@ class Context extends jni.JObject {
   }
 
   static final _createDeviceProtectedStorageContext = jniLookup<
-              ffi.NativeFunction<
-                  jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
           "Context__createDeviceProtectedStorageContext")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract android.content.Context createDeviceProtectedStorageContext()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Context createDeviceProtectedStorageContext() {
     return const $ContextType()
         .fromRef(_createDeviceProtectedStorageContext(reference).object);
   }
 
   static final _getDisplay = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__getDisplay")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getDisplay")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public android.view.Display getDisplay()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getDisplay() {
     return const jni.JObjectType().fromRef(_getDisplay(reference).object);
   }
 
+  static final _getDeviceId = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__getDeviceId")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public int getDeviceId()
+  int getDeviceId() {
+    return _getDeviceId(reference).integer;
+  }
+
+  static final _registerDeviceIdChangeListener = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "Context__registerDeviceIdChangeListener")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void registerDeviceIdChangeListener(java.util.concurrent.Executor executor, java.util.function.IntConsumer intConsumer)
+  void registerDeviceIdChangeListener(
+    jni.JObject executor,
+    jni.JObject intConsumer,
+  ) {
+    return _registerDeviceIdChangeListener(
+            reference, executor.reference, intConsumer.reference)
+        .check();
+  }
+
+  static final _unregisterDeviceIdChangeListener = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "Context__unregisterDeviceIdChangeListener")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void unregisterDeviceIdChangeListener(java.util.function.IntConsumer intConsumer)
+  void unregisterDeviceIdChangeListener(
+    jni.JObject intConsumer,
+  ) {
+    return _unregisterDeviceIdChangeListener(reference, intConsumer.reference)
+        .check();
+  }
+
   static final _isRestricted = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__isRestricted")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__isRestricted")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isRestricted()
@@ -3487,9 +3290,9 @@ class Context extends jni.JObject {
   }
 
   static final _isDeviceProtectedStorage = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__isDeviceProtectedStorage")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__isDeviceProtectedStorage")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public abstract boolean isDeviceProtectedStorage()
@@ -3498,9 +3301,9 @@ class Context extends jni.JObject {
   }
 
   static final _isUiContext = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Context__isUiContext")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Context__isUiContext")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public boolean isUiContext()
@@ -3509,7 +3312,7 @@ class Context extends jni.JObject {
   }
 }
 
-class $ContextType extends jni.JObjType<Context> {
+final class $ContextType extends jni.JObjType<Context> {
   const $ContextType();
 
   @override
@@ -3533,834 +3336,6 @@ class $ContextType extends jni.JObjType<Context> {
   }
 }
 
-/// from: androidx.health.connect.client.request.AggregateRequest
-class AggregateRequest extends jni.JObject {
-  @override
-  late final jni.JObjType<AggregateRequest> $type = type;
-
-  AggregateRequest.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
-
-  /// The type which includes information such as the signature of this class.
-  static const type = $AggregateRequestType();
-  static final _ctor = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("AggregateRequest__ctor")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: public void <init>(java.util.Set set, androidx.health.connect.client.time.TimeRangeFilter timeRangeFilter, java.util.Set set1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory AggregateRequest(
-    jni.JSet<AggregateMetric<jni.JObject>> set0,
-    TimeRangeFilter timeRangeFilter,
-    jni.JSet<jni.JObject> set1,
-  ) {
-    return AggregateRequest.fromRef(
-        _ctor(set0.reference, timeRangeFilter.reference, set1.reference)
-            .object);
-  }
-
-  static final _ctor1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Int32,
-                  ffi.Pointer<ffi.Void>)>>("AggregateRequest__ctor1")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public void <init>(java.util.Set set, androidx.health.connect.client.time.TimeRangeFilter timeRangeFilter, java.util.Set set1, int i, kotlin.jvm.internal.DefaultConstructorMarker defaultConstructorMarker)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory AggregateRequest.ctor1(
-    jni.JSet<jni.JObject> set0,
-    TimeRangeFilter timeRangeFilter,
-    jni.JSet<jni.JObject> set1,
-    int i,
-    jni.JObject defaultConstructorMarker,
-  ) {
-    return AggregateRequest.fromRef(_ctor1(
-            set0.reference,
-            timeRangeFilter.reference,
-            set1.reference,
-            i,
-            defaultConstructorMarker.reference)
-        .object);
-  }
-
-  static final _equals1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("AggregateRequest__equals1")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public boolean equals(java.lang.Object object)
-  bool equals1(
-    jni.JObject object,
-  ) {
-    return _equals1(reference, object.reference).boolean;
-  }
-
-  static final _hashCode1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("AggregateRequest__hashCode1")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public int hashCode()
-  int hashCode1() {
-    return _hashCode1(reference).integer;
-  }
-}
-
-class $AggregateRequestType extends jni.JObjType<AggregateRequest> {
-  const $AggregateRequestType();
-
-  @override
-  String get signature =>
-      r"Landroidx/health/connect/client/request/AggregateRequest;";
-
-  @override
-  AggregateRequest fromRef(jni.JObjectPtr ref) => AggregateRequest.fromRef(ref);
-
-  @override
-  jni.JObjType get superType => const jni.JObjectType();
-
-  @override
-  final superCount = 1;
-
-  @override
-  int get hashCode => ($AggregateRequestType).hashCode;
-
-  @override
-  bool operator ==(Object other) {
-    return other.runtimeType == ($AggregateRequestType) &&
-        other is $AggregateRequestType;
-  }
-}
-
-/// from: androidx.health.connect.client.time.TimeRangeFilter
-class TimeRangeFilter extends jni.JObject {
-  @override
-  late final jni.JObjType<TimeRangeFilter> $type = type;
-
-  TimeRangeFilter.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
-
-  /// The type which includes information such as the signature of this class.
-  static const type = $TimeRangeFilterType();
-  static final _get_Companion =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
-              "get_TimeRangeFilter__Companion")
-          .asFunction<jni.JniResult Function()>();
-
-  /// from: static public final androidx.health.connect.client.time.TimeRangeFilter$Companion Companion
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static jni.JObject get Companion =>
-      const jni.JObjectType().fromRef(_get_Companion().object);
-
-  static final _ctor = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__ctor")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public void <init>(java.time.Instant instant, java.time.Instant instant1, java.time.LocalDateTime localDateTime, java.time.LocalDateTime localDateTime1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory TimeRangeFilter(
-    Instant instant,
-    Instant instant1,
-    jni.JObject localDateTime,
-    jni.JObject localDateTime1,
-  ) {
-    return TimeRangeFilter.fromRef(_ctor(instant.reference, instant1.reference,
-            localDateTime.reference, localDateTime1.reference)
-        .object);
-  }
-
-  static final _ctor1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Int32,
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__ctor1")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              int,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: public void <init>(java.time.Instant instant, java.time.Instant instant1, java.time.LocalDateTime localDateTime, java.time.LocalDateTime localDateTime1, int i, kotlin.jvm.internal.DefaultConstructorMarker defaultConstructorMarker)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory TimeRangeFilter.ctor1(
-    Instant instant,
-    Instant instant1,
-    jni.JObject localDateTime,
-    jni.JObject localDateTime1,
-    int i,
-    jni.JObject defaultConstructorMarker,
-  ) {
-    return TimeRangeFilter.fromRef(_ctor1(
-            instant.reference,
-            instant1.reference,
-            localDateTime.reference,
-            localDateTime1.reference,
-            i,
-            defaultConstructorMarker.reference)
-        .object);
-  }
-
-  static final _equals1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__equals1")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public boolean equals(java.lang.Object object)
-  bool equals1(
-    jni.JObject object,
-  ) {
-    return _equals1(reference, object.reference).boolean;
-  }
-
-  static final _hashCode1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__hashCode1")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public int hashCode()
-  int hashCode1() {
-    return _hashCode1(reference).integer;
-  }
-
-  static final _ctor2 = jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
-          "TimeRangeFilter__ctor2")
-      .asFunction<jni.JniResult Function()>();
-
-  /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory TimeRangeFilter.ctor2() {
-    return TimeRangeFilter.fromRef(_ctor2().object);
-  }
-
-  static final _between = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__between")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public final androidx.health.connect.client.time.TimeRangeFilter between(java.time.Instant instant, java.time.Instant instant1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static TimeRangeFilter between(
-    Instant instant,
-    Instant instant1,
-  ) {
-    return const $TimeRangeFilterType()
-        .fromRef(_between(instant.reference, instant1.reference).object);
-  }
-
-  static final _between1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__between1")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public final androidx.health.connect.client.time.TimeRangeFilter between(java.time.LocalDateTime localDateTime, java.time.LocalDateTime localDateTime1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static TimeRangeFilter between1(
-    jni.JObject localDateTime,
-    jni.JObject localDateTime1,
-  ) {
-    return const $TimeRangeFilterType().fromRef(
-        _between1(localDateTime.reference, localDateTime1.reference).object);
-  }
-
-  static final _before = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__before")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public final androidx.health.connect.client.time.TimeRangeFilter before(java.time.Instant instant)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static TimeRangeFilter before(
-    Instant instant,
-  ) {
-    return const $TimeRangeFilterType()
-        .fromRef(_before(instant.reference).object);
-  }
-
-  static final _before1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__before1")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public final androidx.health.connect.client.time.TimeRangeFilter before(java.time.LocalDateTime localDateTime)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static TimeRangeFilter before1(
-    jni.JObject localDateTime,
-  ) {
-    return const $TimeRangeFilterType()
-        .fromRef(_before1(localDateTime.reference).object);
-  }
-
-  static final _after = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__after")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public final androidx.health.connect.client.time.TimeRangeFilter after(java.time.Instant instant)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static TimeRangeFilter after(
-    Instant instant,
-  ) {
-    return const $TimeRangeFilterType()
-        .fromRef(_after(instant.reference).object);
-  }
-
-  static final _after1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("TimeRangeFilter__after1")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: static public final androidx.health.connect.client.time.TimeRangeFilter after(java.time.LocalDateTime localDateTime)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static TimeRangeFilter after1(
-    jni.JObject localDateTime,
-  ) {
-    return const $TimeRangeFilterType()
-        .fromRef(_after1(localDateTime.reference).object);
-  }
-}
-
-class $TimeRangeFilterType extends jni.JObjType<TimeRangeFilter> {
-  const $TimeRangeFilterType();
-
-  @override
-  String get signature =>
-      r"Landroidx/health/connect/client/time/TimeRangeFilter;";
-
-  @override
-  TimeRangeFilter fromRef(jni.JObjectPtr ref) => TimeRangeFilter.fromRef(ref);
-
-  @override
-  jni.JObjType get superType => const jni.JObjectType();
-
-  @override
-  final superCount = 1;
-
-  @override
-  int get hashCode => ($TimeRangeFilterType).hashCode;
-
-  @override
-  bool operator ==(Object other) {
-    return other.runtimeType == ($TimeRangeFilterType) &&
-        other is $TimeRangeFilterType;
-  }
-}
-
-/// from: androidx.health.connect.client.aggregate.AggregationResult
-class AggregationResult extends jni.JObject {
-  @override
-  late final jni.JObjType<AggregationResult> $type = type;
-
-  AggregationResult.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
-
-  /// The type which includes information such as the signature of this class.
-  static const type = $AggregationResultType();
-  static final _ctor = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("AggregationResult__ctor")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: public void <init>(java.util.Map map, java.util.Map map1, java.util.Set set)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory AggregationResult(
-    jni.JMap<jni.JString, jni.JLong> map,
-    jni.JMap<jni.JString, jni.JDouble> map1,
-    jni.JSet<jni.JObject> set0,
-  ) {
-    return AggregationResult.fromRef(
-        _ctor(map.reference, map1.reference, set0.reference).object);
-  }
-
-  static final _getDataOrigins = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("AggregationResult__getDataOrigins")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public final java.util.Set getDataOrigins()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JSet<jni.JObject> getDataOrigins() {
-    return const jni.JSetType(jni.JObjectType())
-        .fromRef(_getDataOrigins(reference).object);
-  }
-
-  static final _hasMetric = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("AggregationResult__hasMetric")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public final boolean hasMetric(androidx.health.connect.client.aggregate.AggregateMetric aggregateMetric)
-  bool hasMetric(
-    AggregateMetric<jni.JObject> aggregateMetric,
-  ) {
-    return _hasMetric(reference, aggregateMetric.reference).boolean;
-  }
-
-  static final _contains = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("AggregationResult__contains")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public final boolean contains(androidx.health.connect.client.aggregate.AggregateMetric aggregateMetric)
-  bool contains(
-    AggregateMetric<jni.JObject> aggregateMetric,
-  ) {
-    return _contains(reference, aggregateMetric.reference).boolean;
-  }
-
-  static final _getMetric = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("AggregationResult__getMetric")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public final T getMetric(androidx.health.connect.client.aggregate.AggregateMetric aggregateMetric)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  $T getMetric<$T extends jni.JObject>(
-    AggregateMetric<$T> aggregateMetric, {
-    jni.JObjType<$T>? T,
-  }) {
-    T ??= jni.lowestCommonSuperType([
-      (aggregateMetric.$type as $AggregateMetricType).T,
-    ]) as jni.JObjType<$T>;
-    return T.fromRef(_getMetric(reference, aggregateMetric.reference).object);
-  }
-
-  static final _get0 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("AggregationResult__get0")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public final T get(androidx.health.connect.client.aggregate.AggregateMetric aggregateMetric)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  $T get0<$T extends jni.JObject>(
-    AggregateMetric<$T> aggregateMetric, {
-    jni.JObjType<$T>? T,
-  }) {
-    T ??= jni.lowestCommonSuperType([
-      (aggregateMetric.$type as $AggregateMetricType).T,
-    ]) as jni.JObjType<$T>;
-    return T.fromRef(_get0(reference, aggregateMetric.reference).object);
-  }
-}
-
-class $AggregationResultType extends jni.JObjType<AggregationResult> {
-  const $AggregationResultType();
-
-  @override
-  String get signature =>
-      r"Landroidx/health/connect/client/aggregate/AggregationResult;";
-
-  @override
-  AggregationResult fromRef(jni.JObjectPtr ref) =>
-      AggregationResult.fromRef(ref);
-
-  @override
-  jni.JObjType get superType => const jni.JObjectType();
-
-  @override
-  final superCount = 1;
-
-  @override
-  int get hashCode => ($AggregationResultType).hashCode;
-
-  @override
-  bool operator ==(Object other) {
-    return other.runtimeType == ($AggregationResultType) &&
-        other is $AggregationResultType;
-  }
-}
-
-/// from: androidx.health.connect.client.aggregate.AggregateMetric
-class AggregateMetric<$T extends jni.JObject> extends jni.JObject {
-  @override
-  late final jni.JObjType<AggregateMetric<$T>> $type = type(T);
-
-  final jni.JObjType<$T> T;
-
-  AggregateMetric.fromRef(
-    this.T,
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
-
-  /// The type which includes information such as the signature of this class.
-  static $AggregateMetricType<$T> type<$T extends jni.JObject>(
-    jni.JObjType<$T> T,
-  ) {
-    return $AggregateMetricType(
-      T,
-    );
-  }
-
-  static final _get_Companion =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
-              "get_AggregateMetric__Companion")
-          .asFunction<jni.JniResult Function()>();
-
-  /// from: static public final androidx.health.connect.client.aggregate.AggregateMetric$Companion Companion
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static jni.JObject get Companion =>
-      const jni.JObjectType().fromRef(_get_Companion().object);
-
-  static final _ctor = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("AggregateMetric__ctor")
-      .asFunction<
-          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public void <init>(androidx.health.connect.client.aggregate.AggregateMetric$Converter converter, java.lang.String string, androidx.health.connect.client.aggregate.AggregateMetric$AggregationType aggregationType, java.lang.String string1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory AggregateMetric(
-    jni.JObject converter,
-    jni.JString string,
-    jni.JObject aggregationType,
-    jni.JString string1, {
-    required jni.JObjType<$T> T,
-  }) {
-    return AggregateMetric.fromRef(
-        T,
-        _ctor(converter.reference, string.reference, aggregationType.reference,
-                string1.reference)
-            .object);
-  }
-}
-
-class $AggregateMetricType<$T extends jni.JObject>
-    extends jni.JObjType<AggregateMetric<$T>> {
-  final jni.JObjType<$T> T;
-
-  const $AggregateMetricType(
-    this.T,
-  );
-
-  @override
-  String get signature =>
-      r"Landroidx/health/connect/client/aggregate/AggregateMetric;";
-
-  @override
-  AggregateMetric<$T> fromRef(jni.JObjectPtr ref) =>
-      AggregateMetric.fromRef(T, ref);
-
-  @override
-  jni.JObjType get superType => const jni.JObjectType();
-
-  @override
-  final superCount = 1;
-
-  @override
-  int get hashCode => Object.hash($AggregateMetricType, T);
-
-  @override
-  bool operator ==(Object other) {
-    return other.runtimeType == ($AggregateMetricType<$T>) &&
-        other is $AggregateMetricType<$T> &&
-        T == other.T;
-  }
-}
-
-/// from: androidx.health.connect.client.records.StepsRecord
-class StepsRecord extends jni.JObject {
-  @override
-  late final jni.JObjType<StepsRecord> $type = type;
-
-  StepsRecord.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
-
-  /// The type which includes information such as the signature of this class.
-  static const type = $StepsRecordType();
-  static final _get_Companion =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
-              "get_StepsRecord__Companion")
-          .asFunction<jni.JniResult Function()>();
-
-  /// from: static public final androidx.health.connect.client.records.StepsRecord$Companion Companion
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static jni.JObject get Companion =>
-      const jni.JObjectType().fromRef(_get_Companion().object);
-
-  static final _get_COUNT_TOTAL =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
-              "get_StepsRecord__COUNT_TOTAL")
-          .asFunction<jni.JniResult Function()>();
-
-  /// from: static public final androidx.health.connect.client.aggregate.AggregateMetric COUNT_TOTAL
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  static AggregateMetric<jni.JLong> get COUNT_TOTAL =>
-      const $AggregateMetricType(jni.JLongType())
-          .fromRef(_get_COUNT_TOTAL().object);
-
-  static final _ctor = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Int64,
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__ctor")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              int,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: public void <init>(java.time.Instant instant, java.time.ZoneOffset zoneOffset, java.time.Instant instant1, java.time.ZoneOffset zoneOffset1, long j, androidx.health.connect.client.records.metadata.Metadata metadata)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory StepsRecord(
-    Instant instant,
-    jni.JObject zoneOffset,
-    Instant instant1,
-    jni.JObject zoneOffset1,
-    int j,
-    jni.JObject metadata,
-  ) {
-    return StepsRecord.fromRef(_ctor(instant.reference, zoneOffset.reference,
-            instant1.reference, zoneOffset1.reference, j, metadata.reference)
-        .object);
-  }
-
-  static final _ctor1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Int64,
-                  ffi.Pointer<ffi.Void>,
-                  ffi.Int32,
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__ctor1")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              int,
-              ffi.Pointer<ffi.Void>,
-              int,
-              ffi.Pointer<ffi.Void>)>();
-
-  /// from: public void <init>(java.time.Instant instant, java.time.ZoneOffset zoneOffset, java.time.Instant instant1, java.time.ZoneOffset zoneOffset1, long j, androidx.health.connect.client.records.metadata.Metadata metadata, int i, kotlin.jvm.internal.DefaultConstructorMarker defaultConstructorMarker)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory StepsRecord.ctor1(
-    Instant instant,
-    jni.JObject zoneOffset,
-    Instant instant1,
-    jni.JObject zoneOffset1,
-    int j,
-    jni.JObject metadata,
-    int i,
-    jni.JObject defaultConstructorMarker,
-  ) {
-    return StepsRecord.fromRef(_ctor1(
-            instant.reference,
-            zoneOffset.reference,
-            instant1.reference,
-            zoneOffset1.reference,
-            j,
-            metadata.reference,
-            i,
-            defaultConstructorMarker.reference)
-        .object);
-  }
-
-  static final _getStartTime = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__getStartTime")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public java.time.Instant getStartTime()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Instant getStartTime() {
-    return const $InstantType().fromRef(_getStartTime(reference).object);
-  }
-
-  static final _getStartZoneOffset = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__getStartZoneOffset")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public java.time.ZoneOffset getStartZoneOffset()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getStartZoneOffset() {
-    return const jni.JObjectType()
-        .fromRef(_getStartZoneOffset(reference).object);
-  }
-
-  static final _getEndTime = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__getEndTime")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public java.time.Instant getEndTime()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  Instant getEndTime() {
-    return const $InstantType().fromRef(_getEndTime(reference).object);
-  }
-
-  static final _getEndZoneOffset = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__getEndZoneOffset")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public java.time.ZoneOffset getEndZoneOffset()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getEndZoneOffset() {
-    return const jni.JObjectType().fromRef(_getEndZoneOffset(reference).object);
-  }
-
-  static final _getCount = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__getCount")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public final long getCount()
-  int getCount() {
-    return _getCount(reference).long;
-  }
-
-  static final _getMetadata = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__getMetadata")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public androidx.health.connect.client.records.metadata.Metadata getMetadata()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getMetadata() {
-    return const jni.JObjectType().fromRef(_getMetadata(reference).object);
-  }
-
-  static final _equals1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>,
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__equals1")
-      .asFunction<
-          jni.JniResult Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
-
-  /// from: public boolean equals(java.lang.Object object)
-  bool equals1(
-    jni.JObject object,
-  ) {
-    return _equals1(reference, object.reference).boolean;
-  }
-
-  static final _hashCode1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("StepsRecord__hashCode1")
-      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
-
-  /// from: public int hashCode()
-  int hashCode1() {
-    return _hashCode1(reference).integer;
-  }
-}
-
-class $StepsRecordType extends jni.JObjType<StepsRecord> {
-  const $StepsRecordType();
-
-  @override
-  String get signature =>
-      r"Landroidx/health/connect/client/records/StepsRecord;";
-
-  @override
-  StepsRecord fromRef(jni.JObjectPtr ref) => StepsRecord.fromRef(ref);
-
-  @override
-  jni.JObjType get superType => const jni.JObjectType();
-
-  @override
-  final superCount = 1;
-
-  @override
-  int get hashCode => ($StepsRecordType).hashCode;
-
-  @override
-  bool operator ==(Object other) {
-    return other.runtimeType == ($StepsRecordType) && other is $StepsRecordType;
-  }
-}
-
 /// from: java.time.Instant
 class Instant extends jni.JObject {
   @override
@@ -4378,7 +3353,7 @@ class Instant extends jni.JObject {
           .asFunction<jni.JniResult Function()>();
 
   /// from: static public final java.time.Instant EPOCH
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Instant get EPOCH => const $InstantType().fromRef(_get_EPOCH().object);
 
   static final _get_MAX =
@@ -4387,7 +3362,7 @@ class Instant extends jni.JObject {
           .asFunction<jni.JniResult Function()>();
 
   /// from: static public final java.time.Instant MAX
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Instant get MAX => const $InstantType().fromRef(_get_MAX().object);
 
   static final _get_MIN =
@@ -4396,7 +3371,7 @@ class Instant extends jni.JObject {
           .asFunction<jni.JniResult Function()>();
 
   /// from: static public final java.time.Instant MIN
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Instant get MIN => const $InstantType().fromRef(_get_MIN().object);
 
   static final _now =
@@ -4404,18 +3379,19 @@ class Instant extends jni.JObject {
           .asFunction<jni.JniResult Function()>();
 
   /// from: static public java.time.Instant now()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Instant now() {
     return const $InstantType().fromRef(_now().object);
   }
 
   static final _now1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Instant__now1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__now1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public java.time.Instant now(java.time.Clock clock)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Instant now1(
     jni.JObject clock,
   ) {
@@ -4428,7 +3404,7 @@ class Instant extends jni.JObject {
           .asFunction<jni.JniResult Function(int)>();
 
   /// from: static public java.time.Instant ofEpochSecond(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Instant ofEpochSecond(
     int j,
   ) {
@@ -4441,7 +3417,7 @@ class Instant extends jni.JObject {
       .asFunction<jni.JniResult Function(int, int)>();
 
   /// from: static public java.time.Instant ofEpochSecond(long j, long j1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Instant ofEpochSecond1(
     int j,
     int j1,
@@ -4455,7 +3431,7 @@ class Instant extends jni.JObject {
           .asFunction<jni.JniResult Function(int)>();
 
   /// from: static public java.time.Instant ofEpochMilli(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Instant ofEpochMilli(
     int j,
   ) {
@@ -4463,12 +3439,13 @@ class Instant extends jni.JObject {
   }
 
   static final _from = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Instant__from")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__from")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public java.time.Instant from(java.time.temporal.TemporalAccessor temporalAccessor)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Instant from(
     jni.JObject temporalAccessor,
   ) {
@@ -4477,12 +3454,13 @@ class Instant extends jni.JObject {
   }
 
   static final _parse = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Instant__parse")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__parse")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: static public java.time.Instant parse(java.lang.CharSequence charSequence)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Instant parse(
     jni.JObject charSequence,
   ) {
@@ -4528,7 +3506,7 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.temporal.ValueRange range(java.time.temporal.TemporalField temporalField)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject range(
     jni.JObject temporalField,
   ) {
@@ -4567,9 +3545,9 @@ class Instant extends jni.JObject {
   }
 
   static final _getEpochSecond = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Instant__getEpochSecond")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__getEpochSecond")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public long getEpochSecond()
@@ -4578,9 +3556,9 @@ class Instant extends jni.JObject {
   }
 
   static final _getNano = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Instant__getNano")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__getNano")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int getNano()
@@ -4597,7 +3575,7 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.Instant with(java.time.temporal.TemporalAdjuster temporalAdjuster)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Instant with0(
     jni.JObject temporalAdjuster,
   ) {
@@ -4614,7 +3592,7 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.time.Instant with(java.time.temporal.TemporalField temporalField, long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Instant with1(
     jni.JObject temporalField,
     int j,
@@ -4632,7 +3610,7 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.Instant truncatedTo(java.time.temporal.TemporalUnit temporalUnit)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Instant truncatedTo(
     jni.JObject temporalUnit,
   ) {
@@ -4649,7 +3627,7 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.Instant plus(java.time.temporal.TemporalAmount temporalAmount)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Instant plus(
     jni.JObject temporalAmount,
   ) {
@@ -4666,7 +3644,7 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.Instant plus(long j, java.time.temporal.TemporalUnit temporalUnit)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Instant plus1(
     int j,
     jni.JObject temporalUnit,
@@ -4682,7 +3660,7 @@ class Instant extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.time.Instant plusSeconds(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Instant plusSeconds(
     int j,
   ) {
@@ -4696,7 +3674,7 @@ class Instant extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.time.Instant plusMillis(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Instant plusMillis(
     int j,
   ) {
@@ -4710,7 +3688,7 @@ class Instant extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.time.Instant plusNanos(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Instant plusNanos(
     int j,
   ) {
@@ -4726,7 +3704,7 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.Instant minus(java.time.temporal.TemporalAmount temporalAmount)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Instant minus(
     jni.JObject temporalAmount,
   ) {
@@ -4743,7 +3721,7 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.Instant minus(long j, java.time.temporal.TemporalUnit temporalUnit)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Instant minus1(
     int j,
     jni.JObject temporalUnit,
@@ -4759,7 +3737,7 @@ class Instant extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.time.Instant minusSeconds(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Instant minusSeconds(
     int j,
   ) {
@@ -4773,7 +3751,7 @@ class Instant extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.time.Instant minusMillis(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Instant minusMillis(
     int j,
   ) {
@@ -4787,7 +3765,7 @@ class Instant extends jni.JObject {
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.time.Instant minusNanos(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Instant minusNanos(
     int j,
   ) {
@@ -4803,7 +3781,7 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public R query(java.time.temporal.TemporalQuery temporalQuery)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   $R query<$R extends jni.JObject>(
     jni.JObject temporalQuery, {
     required jni.JObjType<$R> R,
@@ -4820,7 +3798,7 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.temporal.Temporal adjustInto(java.time.temporal.Temporal temporal)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject adjustInto(
     jni.JObject temporal,
   ) {
@@ -4855,7 +3833,7 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.OffsetDateTime atOffset(java.time.ZoneOffset zoneOffset)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject atOffset(
     jni.JObject zoneOffset,
   ) {
@@ -4872,7 +3850,7 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.ZonedDateTime atZone(java.time.ZoneId zoneId)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject atZone(
     jni.JObject zoneId,
   ) {
@@ -4881,9 +3859,9 @@ class Instant extends jni.JObject {
   }
 
   static final _toEpochMilli = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Instant__toEpochMilli")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__toEpochMilli")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public long toEpochMilli()
@@ -4952,9 +3930,9 @@ class Instant extends jni.JObject {
   }
 
   static final _hashCode1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Instant__hashCode1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__hashCode1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public int hashCode()
@@ -4963,13 +3941,13 @@ class Instant extends jni.JObject {
   }
 
   static final _toString1 = jniLookup<
-          ffi.NativeFunction<
-              jni.JniResult Function(
-                  ffi.Pointer<ffi.Void>)>>("Instant__toString1")
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Instant__toString1")
       .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.lang.String toString()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString toString1() {
     return const jni.JStringType().fromRef(_toString1(reference).object);
   }
@@ -4983,7 +3961,7 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.temporal.Temporal minus(long j, java.time.temporal.TemporalUnit temporalUnit)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject minus2(
     int j,
     jni.JObject temporalUnit,
@@ -5001,7 +3979,7 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.temporal.Temporal minus(java.time.temporal.TemporalAmount temporalAmount)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject minus3(
     jni.JObject temporalAmount,
   ) {
@@ -5018,7 +3996,7 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.temporal.Temporal plus(long j, java.time.temporal.TemporalUnit temporalUnit)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject plus2(
     int j,
     jni.JObject temporalUnit,
@@ -5036,7 +4014,7 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.temporal.Temporal plus(java.time.temporal.TemporalAmount temporalAmount)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject plus3(
     jni.JObject temporalAmount,
   ) {
@@ -5053,7 +4031,7 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   /// from: public java.time.temporal.Temporal with(java.time.temporal.TemporalField temporalField, long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject with2(
     jni.JObject temporalField,
     int j,
@@ -5071,7 +4049,7 @@ class Instant extends jni.JObject {
               ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   /// from: public java.time.temporal.Temporal with(java.time.temporal.TemporalAdjuster temporalAdjuster)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject with3(
     jni.JObject temporalAdjuster,
   ) {
@@ -5095,7 +4073,7 @@ class Instant extends jni.JObject {
   }
 }
 
-class $InstantType extends jni.JObjType<Instant> {
+final class $InstantType extends jni.JObjType<Instant> {
   const $InstantType();
 
   @override
@@ -5116,5 +4094,4076 @@ class $InstantType extends jni.JObjType<Instant> {
   @override
   bool operator ==(Object other) {
     return other.runtimeType == ($InstantType) && other is $InstantType;
+  }
+}
+
+/// from: com.ihealth.communication.control.Bg1Control
+class Bg1Control extends jni.JObject {
+  @override
+  late final jni.JObjType<Bg1Control> $type = type;
+
+  Bg1Control.fromRef(
+    jni.JObjectPtr ref,
+  ) : super.fromRef(ref);
+
+  /// The type which includes information such as the signature of this class.
+  static const type = $Bg1ControlType();
+  static final _new0 = jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+          "Bg1Control__new0")
+      .asFunction<jni.JniResult Function()>();
+
+  /// from: public void <init>()
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Bg1Control() {
+    return Bg1Control.fromRef(_new0().object);
+  }
+
+  static final _getInstance =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "Bg1Control__getInstance")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public com.ihealth.communication.control.Bg1Control getInstance()
+  /// The returned object must be released after use, by calling the [release] method.
+  static Bg1Control getInstance() {
+    return const $Bg1ControlType().fromRef(_getInstance().object);
+  }
+
+  static final _getBottleInfoFromQR = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Bg1Control__getBottleInfoFromQR")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.lang.String getBottleInfoFromQR(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JString getBottleInfoFromQR(
+    jni.JString string,
+  ) {
+    return const jni.JStringType()
+        .fromRef(_getBottleInfoFromQR(string.reference).object);
+  }
+
+  static final _init = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Int32)>>("Bg1Control__init")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>, int)>();
+
+  /// from: public void init(android.content.Context context, java.lang.String string, int i)
+  void init(
+    Context context,
+    jni.JString string,
+    int i,
+  ) {
+    return _init(reference, context.reference, string.reference, i).check();
+  }
+
+  static final _init1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Int32,
+                  ffi.Uint8)>>("Bg1Control__init1")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>, int, int)>();
+
+  /// from: public void init(android.content.Context context, java.lang.String string, int i, boolean z)
+  void init1(
+    Context context,
+    jni.JString string,
+    int i,
+    bool z,
+  ) {
+    return _init1(reference, context.reference, string.reference, i, z ? 1 : 0)
+        .check();
+  }
+
+  static final _connect = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Bg1Control__connect")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void connect()
+  void connect() {
+    return _connect(reference).check();
+  }
+
+  static final _sendCode = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Int32,
+                  ffi.Int32)>>("Bg1Control__sendCode")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int, int)>();
+
+  /// from: public void sendCode(java.lang.String string, int i, int i1)
+  void sendCode(
+    jni.JString string,
+    int i,
+    int i1,
+  ) {
+    return _sendCode(reference, string.reference, i, i1).check();
+  }
+
+  static final _disconnect = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Bg1Control__disconnect")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void disconnect()
+  void disconnect() {
+    return _disconnect(reference).check();
+  }
+
+  static final _msgBytes = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Bg1Control__msgBytes")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void msgBytes(byte[] bs)
+  void msgBytes(
+    jni.JArray<jni.jbyte> bs,
+  ) {
+    return _msgBytes(reference, bs.reference).check();
+  }
+}
+
+final class $Bg1ControlType extends jni.JObjType<Bg1Control> {
+  const $Bg1ControlType();
+
+  @override
+  String get signature => r"Lcom/ihealth/communication/control/Bg1Control;";
+
+  @override
+  Bg1Control fromRef(jni.JObjectPtr ref) => Bg1Control.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($Bg1ControlType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($Bg1ControlType) && other is $Bg1ControlType;
+  }
+}
+
+/// from: com.ihealth.communication.control.Bg1Profile
+class Bg1Profile extends jni.JObject {
+  @override
+  late final jni.JObjType<Bg1Profile> $type = type;
+
+  Bg1Profile.fromRef(
+    jni.JObjectPtr ref,
+  ) : super.fromRef(ref);
+
+  /// The type which includes information such as the signature of this class.
+  static const type = $Bg1ProfileType();
+
+  /// from: static public final java.lang.String ACTION_BG1_DEVICE_READY
+  static const ACTION_BG1_DEVICE_READY = r"""action_device_ready_for_bg1""";
+
+  /// from: static public final java.lang.String ACTION_BG1_IDPS
+  static const ACTION_BG1_IDPS = r"""action_idps_for_bg1""";
+
+  /// from: static public final java.lang.String BG1_IDPS
+  static const BG1_IDPS = r"""idps_for_bg1""";
+
+  /// from: static public final java.lang.String ACTION_BG1_CONNECT_RESULT
+  static const ACTION_BG1_CONNECT_RESULT = r"""action_connect_result_for_bg1""";
+
+  /// from: static public final java.lang.String BG1_CONNECT_RESULT
+  static const BG1_CONNECT_RESULT = r"""connect_result_for_bg1""";
+
+  /// from: static public final java.lang.String ACTION_BG1_SENDCODE_RESULT
+  static const ACTION_BG1_SENDCODE_RESULT =
+      r"""action_sendcode_result_for_bg1""";
+
+  /// from: static public final java.lang.String BG1_SENDCODE_RESULT
+  static const BG1_SENDCODE_RESULT = r"""sendcode_result_for_bg1""";
+
+  /// from: static public final java.lang.String ACTION_BG1_MEASURE_ERROR
+  static const ACTION_BG1_MEASURE_ERROR = r"""action_measure_error_for_bg1""";
+
+  /// from: static public final java.lang.String BG1_MEASURE_ERROR
+  static const BG1_MEASURE_ERROR = r"""error_num_for_bg1""";
+
+  /// from: static public final java.lang.String BG1_MEASURE_ERROR_DESCRIPTION
+  static const BG1_MEASURE_ERROR_DESCRIPTION = r"""error_description_for_bg1""";
+
+  /// from: static public final java.lang.String ACTION_BG1_MEASURE_STRIP_IN
+  static const ACTION_BG1_MEASURE_STRIP_IN =
+      r"""action_measure_strip_in_for_bg1""";
+
+  /// from: static public final java.lang.String ACTION_BG1_MEASURE_GET_BLOOD
+  static const ACTION_BG1_MEASURE_GET_BLOOD =
+      r"""action_measure_get_blood_for_bg1""";
+
+  /// from: static public final java.lang.String ACTION_BG1_MEASURE_RESULT
+  static const ACTION_BG1_MEASURE_RESULT = r"""action_measure_result_for_bg1""";
+
+  /// from: static public final java.lang.String BG1_MEASURE_RESULT
+  static const BG1_MEASURE_RESULT = r"""measure_result_for_bg1""";
+
+  /// from: static public final java.lang.String ACTION_BG1_MEASURE_STRIP_OUT
+  static const ACTION_BG1_MEASURE_STRIP_OUT =
+      r"""action_measure_strip_out_for_bg1""";
+
+  /// from: static public final java.lang.String ACTION_BG1_MEASURE_STANDBY
+  static const ACTION_BG1_MEASURE_STANDBY =
+      r"""action_measure_standby_for_bg1""";
+
+  /// from: static public final java.lang.String DATA_ID
+  static const DATA_ID = r"""dataID""";
+
+  /// from: static public final int MEASURE_BLOOD
+  static const MEASURE_BLOOD = 1;
+
+  /// from: static public final int MEASURE_CTL
+  static const MEASURE_CTL = 2;
+
+  /// from: static public final int CODE_GOD
+  static const CODE_GOD = 1;
+
+  /// from: static public final int CODE_GDH
+  static const CODE_GDH = 2;
+}
+
+final class $Bg1ProfileType extends jni.JObjType<Bg1Profile> {
+  const $Bg1ProfileType();
+
+  @override
+  String get signature => r"Lcom/ihealth/communication/control/Bg1Profile;";
+
+  @override
+  Bg1Profile fromRef(jni.JObjectPtr ref) => Bg1Profile.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($Bg1ProfileType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($Bg1ProfileType) && other is $Bg1ProfileType;
+  }
+}
+
+/// from: com.ihealth.communication.manager.DiscoveryTypeEnum
+class DiscoveryTypeEnum extends jni.JObject {
+  @override
+  late final jni.JObjType<DiscoveryTypeEnum> $type = type;
+
+  DiscoveryTypeEnum.fromRef(
+    jni.JObjectPtr ref,
+  ) : super.fromRef(ref);
+
+  /// The type which includes information such as the signature of this class.
+  static const type = $DiscoveryTypeEnumType();
+  static final _get_NULL =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__NULL")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum NULL
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get NULL =>
+      const $DiscoveryTypeEnumType().fromRef(_get_NULL().object);
+
+  static final _get_AM3 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__AM3")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum AM3
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get AM3 =>
+      const $DiscoveryTypeEnumType().fromRef(_get_AM3().object);
+
+  static final _get_AM3S =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__AM3S")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum AM3S
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get AM3S =>
+      const $DiscoveryTypeEnumType().fromRef(_get_AM3S().object);
+
+  static final _get_AM4 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__AM4")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum AM4
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get AM4 =>
+      const $DiscoveryTypeEnumType().fromRef(_get_AM4().object);
+
+  static final _get_AM5 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__AM5")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum AM5
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get AM5 =>
+      const $DiscoveryTypeEnumType().fromRef(_get_AM5().object);
+
+  static final _get_AM6 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__AM6")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum AM6
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get AM6 =>
+      const $DiscoveryTypeEnumType().fromRef(_get_AM6().object);
+
+  static final _get_HS2 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__HS2")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum HS2
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get HS2 =>
+      const $DiscoveryTypeEnumType().fromRef(_get_HS2().object);
+
+  static final _get_HS2S =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__HS2S")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum HS2S
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get HS2S =>
+      const $DiscoveryTypeEnumType().fromRef(_get_HS2S().object);
+
+  static final _get_HS2SPRO =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__HS2SPRO")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum HS2SPRO
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get HS2SPRO =>
+      const $DiscoveryTypeEnumType().fromRef(_get_HS2SPRO().object);
+
+  static final _get_HS3 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__HS3")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum HS3
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get HS3 =>
+      const $DiscoveryTypeEnumType().fromRef(_get_HS3().object);
+
+  static final _get_HS4 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__HS4")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum HS4
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get HS4 =>
+      const $DiscoveryTypeEnumType().fromRef(_get_HS4().object);
+
+  static final _get_HS4S =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__HS4S")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum HS4S
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get HS4S =>
+      const $DiscoveryTypeEnumType().fromRef(_get_HS4S().object);
+
+  static final _get_HS5_WIFI =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__HS5_WIFI")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum HS5_WIFI
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get HS5_WIFI =>
+      const $DiscoveryTypeEnumType().fromRef(_get_HS5_WIFI().object);
+
+  static final _get_HS5_BT =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__HS5_BT")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum HS5_BT
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get HS5_BT =>
+      const $DiscoveryTypeEnumType().fromRef(_get_HS5_BT().object);
+
+  static final _get_BP3M =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__BP3M")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum BP3M
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get BP3M =>
+      const $DiscoveryTypeEnumType().fromRef(_get_BP3M().object);
+
+  static final _get_BP3L =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__BP3L")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum BP3L
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get BP3L =>
+      const $DiscoveryTypeEnumType().fromRef(_get_BP3L().object);
+
+  static final _get_BP5 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__BP5")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum BP5
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get BP5 =>
+      const $DiscoveryTypeEnumType().fromRef(_get_BP5().object);
+
+  static final _get_BP5S =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__BP5S")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum BP5S
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get BP5S =>
+      const $DiscoveryTypeEnumType().fromRef(_get_BP5S().object);
+
+  static final _get_BP7 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__BP7")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum BP7
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get BP7 =>
+      const $DiscoveryTypeEnumType().fromRef(_get_BP7().object);
+
+  static final _get_BP7S =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__BP7S")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum BP7S
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get BP7S =>
+      const $DiscoveryTypeEnumType().fromRef(_get_BP7S().object);
+
+  static final _get_BP550BT =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__BP550BT")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum BP550BT
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get BP550BT =>
+      const $DiscoveryTypeEnumType().fromRef(_get_BP550BT().object);
+
+  static final _get_ABPM =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__ABPM")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum ABPM
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get ABPM =>
+      const $DiscoveryTypeEnumType().fromRef(_get_ABPM().object);
+
+  static final _get_BG1S =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__BG1S")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum BG1S
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get BG1S =>
+      const $DiscoveryTypeEnumType().fromRef(_get_BG1S().object);
+
+  static final _get_BG1A =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__BG1A")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum BG1A
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get BG1A =>
+      const $DiscoveryTypeEnumType().fromRef(_get_BG1A().object);
+
+  static final _get_BG5 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__BG5")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum BG5
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get BG5 =>
+      const $DiscoveryTypeEnumType().fromRef(_get_BG5().object);
+
+  static final _get_BG5S =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__BG5S")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum BG5S
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get BG5S =>
+      const $DiscoveryTypeEnumType().fromRef(_get_BG5S().object);
+
+  static final _get_PO1 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__PO1")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum PO1
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get PO1 =>
+      const $DiscoveryTypeEnumType().fromRef(_get_PO1().object);
+
+  static final _get_PO3 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__PO3")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum PO3
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get PO3 =>
+      const $DiscoveryTypeEnumType().fromRef(_get_PO3().object);
+
+  static final _get_ECG3 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__ECG3")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum ECG3
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get ECG3 =>
+      const $DiscoveryTypeEnumType().fromRef(_get_ECG3().object);
+
+  static final _get_ECG3USB =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__ECG3USB")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum ECG3USB
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get ECG3USB =>
+      const $DiscoveryTypeEnumType().fromRef(_get_ECG3USB().object);
+
+  static final _get_FDIR_V3 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__FDIR_V3")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum FDIR_V3
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get FDIR_V3 =>
+      const $DiscoveryTypeEnumType().fromRef(_get_FDIR_V3().object);
+
+  static final _get_KD926 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__KD926")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum KD926
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get KD926 =>
+      const $DiscoveryTypeEnumType().fromRef(_get_KD926().object);
+
+  static final _get_KD723 =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__KD723")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum KD723
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get KD723 =>
+      const $DiscoveryTypeEnumType().fromRef(_get_KD723().object);
+
+  static final _get_TS28B =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__TS28B")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum TS28B
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get TS28B =>
+      const $DiscoveryTypeEnumType().fromRef(_get_TS28B().object);
+
+  static final _get_NT13B =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__NT13B")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum NT13B
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get NT13B =>
+      const $DiscoveryTypeEnumType().fromRef(_get_NT13B().object);
+
+  static final _get_PT3SBT =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__PT3SBT")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum PT3SBT
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get PT3SBT =>
+      const $DiscoveryTypeEnumType().fromRef(_get_PT3SBT().object);
+
+  static final _get_CBP =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__CBP")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum CBP
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get CBP =>
+      const $DiscoveryTypeEnumType().fromRef(_get_CBP().object);
+
+  static final _get_CBG =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__CBG")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum CBG
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get CBG =>
+      const $DiscoveryTypeEnumType().fromRef(_get_CBG().object);
+
+  static final _get_CPO =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__CPO")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum CPO
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get CPO =>
+      const $DiscoveryTypeEnumType().fromRef(_get_CPO().object);
+
+  static final _get_CHS =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__CHS")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum CHS
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get CHS =>
+      const $DiscoveryTypeEnumType().fromRef(_get_CHS().object);
+
+  static final _get_CBS =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_DiscoveryTypeEnum__CBS")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.manager.DiscoveryTypeEnum CBS
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum get CBS =>
+      const $DiscoveryTypeEnumType().fromRef(_get_CBS().object);
+
+  static final _values =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "DiscoveryTypeEnum__values")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public com.ihealth.communication.manager.DiscoveryTypeEnum[] values()
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JArray<DiscoveryTypeEnum> values() {
+    return const jni.JArrayType($DiscoveryTypeEnumType())
+        .fromRef(_values().object);
+  }
+
+  static final _valueOf = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "DiscoveryTypeEnum__valueOf")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public com.ihealth.communication.manager.DiscoveryTypeEnum valueOf(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  static DiscoveryTypeEnum valueOf(
+    jni.JString string,
+  ) {
+    return const $DiscoveryTypeEnumType()
+        .fromRef(_valueOf(string.reference).object);
+  }
+
+  static final _getType = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("DiscoveryTypeEnum__getType")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.lang.String getType(com.ihealth.communication.manager.DiscoveryTypeEnum discoveryTypeEnum)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getType(
+    DiscoveryTypeEnum discoveryTypeEnum,
+  ) {
+    return const jni.JStringType()
+        .fromRef(_getType(reference, discoveryTypeEnum.reference).object);
+  }
+}
+
+final class $DiscoveryTypeEnumType extends jni.JObjType<DiscoveryTypeEnum> {
+  const $DiscoveryTypeEnumType();
+
+  @override
+  String get signature =>
+      r"Lcom/ihealth/communication/manager/DiscoveryTypeEnum;";
+
+  @override
+  DiscoveryTypeEnum fromRef(jni.JObjectPtr ref) =>
+      DiscoveryTypeEnum.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($DiscoveryTypeEnumType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($DiscoveryTypeEnumType) &&
+        other is $DiscoveryTypeEnumType;
+  }
+}
+
+/// from: com.ihealth.communication.manager.iHealthDevicesCallback
+class iHealthDevicesCallback extends jni.JObject {
+  @override
+  late final jni.JObjType<iHealthDevicesCallback> $type = type;
+
+  iHealthDevicesCallback.fromRef(
+    jni.JObjectPtr ref,
+  ) : super.fromRef(ref);
+
+  /// The type which includes information such as the signature of this class.
+  static const type = $iHealthDevicesCallbackType();
+  static final _new0 = jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+          "iHealthDevicesCallback__new0")
+      .asFunction<jni.JniResult Function()>();
+
+  /// from: public void <init>()
+  /// The returned object must be released after use, by calling the [release] method.
+  factory iHealthDevicesCallback() {
+    return iHealthDevicesCallback.fromRef(_new0().object);
+  }
+
+  static final _onScanDevice = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Int32)>>("iHealthDevicesCallback__onScanDevice")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>, int)>();
+
+  /// from: public void onScanDevice(java.lang.String string, java.lang.String string1, int i)
+  void onScanDevice(
+    jni.JString string,
+    jni.JString string1,
+    int i,
+  ) {
+    return _onScanDevice(reference, string.reference, string1.reference, i)
+        .check();
+  }
+
+  static final _onScanDevice1 = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Int32,
+                      ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesCallback__onScanDevice1")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void onScanDevice(java.lang.String string, java.lang.String string1, int i, java.util.Map map)
+  void onScanDevice1(
+    jni.JString string,
+    jni.JString string1,
+    int i,
+    jni.JMap<jni.JString, jni.JObject> map,
+  ) {
+    return _onScanDevice1(
+            reference, string.reference, string1.reference, i, map.reference)
+        .check();
+  }
+
+  static final _onScanFinish = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesCallback__onScanFinish")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void onScanFinish()
+  void onScanFinish() {
+    return _onScanFinish(reference).check();
+  }
+
+  static final _onScanError = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Int64)>>("iHealthDevicesCallback__onScanError")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
+
+  /// from: public void onScanError(java.lang.String string, long j)
+  void onScanError(
+    jni.JString string,
+    int j,
+  ) {
+    return _onScanError(reference, string.reference, j).check();
+  }
+
+  static final _onDeviceConnectionStateChange = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Int32,
+                      ffi.Int32)>>(
+          "iHealthDevicesCallback__onDeviceConnectionStateChange")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>, int, int)>();
+
+  /// from: public void onDeviceConnectionStateChange(java.lang.String string, java.lang.String string1, int i, int i1)
+  void onDeviceConnectionStateChange(
+    jni.JString string,
+    jni.JString string1,
+    int i,
+    int i1,
+  ) {
+    return _onDeviceConnectionStateChange(
+            reference, string.reference, string1.reference, i, i1)
+        .check();
+  }
+
+  static final _onDeviceConnectionStateChange1 = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Int32,
+                      ffi.Int32,
+                      ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesCallback__onDeviceConnectionStateChange1")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>, int, int, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void onDeviceConnectionStateChange(java.lang.String string, java.lang.String string1, int i, int i1, java.util.Map map)
+  void onDeviceConnectionStateChange1(
+    jni.JString string,
+    jni.JString string1,
+    int i,
+    int i1,
+    jni.JMap<jni.JObject, jni.JObject> map,
+  ) {
+    return _onDeviceConnectionStateChange1(reference, string.reference,
+            string1.reference, i, i1, map.reference)
+        .check();
+  }
+
+  static final _onUserStatus = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Int32)>>("iHealthDevicesCallback__onUserStatus")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
+
+  /// from: public void onUserStatus(java.lang.String string, int i)
+  void onUserStatus(
+    jni.JString string,
+    int i,
+  ) {
+    return _onUserStatus(reference, string.reference, i).check();
+  }
+
+  static final _onSDKStatus = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Int32,
+                      ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesCallback__onSDKStatus")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void onSDKStatus(int i, java.lang.String string)
+  void onSDKStatus(
+    int i,
+    jni.JString string,
+  ) {
+    return _onSDKStatus(reference, i, string.reference).check();
+  }
+
+  static final _onDeviceNotify = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesCallback__onDeviceNotify")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void onDeviceNotify(java.lang.String string, java.lang.String string1, java.lang.String string2, java.lang.String string3)
+  void onDeviceNotify(
+    jni.JString string,
+    jni.JString string1,
+    jni.JString string2,
+    jni.JString string3,
+  ) {
+    return _onDeviceNotify(reference, string.reference, string1.reference,
+            string2.reference, string3.reference)
+        .check();
+  }
+}
+
+final class $iHealthDevicesCallbackType
+    extends jni.JObjType<iHealthDevicesCallback> {
+  const $iHealthDevicesCallbackType();
+
+  @override
+  String get signature =>
+      r"Lcom/ihealth/communication/manager/iHealthDevicesCallback;";
+
+  @override
+  iHealthDevicesCallback fromRef(jni.JObjectPtr ref) =>
+      iHealthDevicesCallback.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($iHealthDevicesCallbackType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($iHealthDevicesCallbackType) &&
+        other is $iHealthDevicesCallbackType;
+  }
+}
+
+/// from: com.ihealth.communication.manager.iHealthDevicesManager$e
+class iHealthDevicesManager_e extends jni.JObject {
+  @override
+  late final jni.JObjType<iHealthDevicesManager_e> $type = type;
+
+  iHealthDevicesManager_e.fromRef(
+    jni.JObjectPtr ref,
+  ) : super.fromRef(ref);
+
+  /// The type which includes information such as the signature of this class.
+  static const type = $iHealthDevicesManager_eType();
+  static final _new0 = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager_e__new0")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void <init>(com.ihealth.communication.manager.iHealthDevicesManager iHealthDevicesManager)
+  /// The returned object must be released after use, by calling the [release] method.
+  factory iHealthDevicesManager_e(
+    iHealthDevicesManager iHealthDevicesManager,
+  ) {
+    return iHealthDevicesManager_e
+        .fromRef(_new0(iHealthDevicesManager.reference).object);
+  }
+
+  static final _a = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Int32,
+                  ffi.Pointer<ffi.Void>)>>("iHealthDevicesManager_e__a")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void a(int i, java.lang.String string)
+  void a(
+    int i,
+    jni.JString string,
+  ) {
+    return _a(reference, i, string.reference).check();
+  }
+
+  static final _run = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager_e__run")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void run()
+  void run() {
+    return _run(reference).check();
+  }
+}
+
+final class $iHealthDevicesManager_eType
+    extends jni.JObjType<iHealthDevicesManager_e> {
+  const $iHealthDevicesManager_eType();
+
+  @override
+  String get signature =>
+      r"Lcom/ihealth/communication/manager/iHealthDevicesManager$e;";
+
+  @override
+  iHealthDevicesManager_e fromRef(jni.JObjectPtr ref) =>
+      iHealthDevicesManager_e.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($iHealthDevicesManager_eType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($iHealthDevicesManager_eType) &&
+        other is $iHealthDevicesManager_eType;
+  }
+}
+
+/// from: com.ihealth.communication.manager.iHealthDevicesManager
+class iHealthDevicesManager extends jni.JObject {
+  @override
+  late final jni.JObjType<iHealthDevicesManager> $type = type;
+
+  iHealthDevicesManager.fromRef(
+    jni.JObjectPtr ref,
+  ) : super.fromRef(ref);
+
+  /// The type which includes information such as the signature of this class.
+  static const type = $iHealthDevicesManagerType();
+
+  /// from: static public final java.lang.String IHEALTH_DEVICE_MAC
+  static const IHEALTH_DEVICE_MAC = r"""mac""";
+
+  /// from: static public final java.lang.String IHEALTH_DEVICE_TYPE
+  static const IHEALTH_DEVICE_TYPE = r"""type""";
+
+  /// from: static public final java.lang.String IHEALTH_DEVICE_NAME
+  static const IHEALTH_DEVICE_NAME = r"""name""";
+
+  /// from: static public final java.lang.String IHEALTH_COMM_TIMEOUT
+  static const IHEALTH_COMM_TIMEOUT = r"""action_communication_timeout""";
+
+  /// from: static public final java.lang.String IHEALTH_COMM_TIMEOUT_DESCRIPTION
+  static const IHEALTH_COMM_TIMEOUT_DESCRIPTION =
+      r"""communication_timeout_description""";
+
+  /// from: static public final java.lang.String IHEALTH_COMM_TIMEOUT_COMMAND_ID
+  static const IHEALTH_COMM_TIMEOUT_COMMAND_ID = r"""communicate_timeout_id""";
+
+  /// from: static public final java.lang.String IHEALTH_MSG_BG5_EE
+  static const IHEALTH_MSG_BG5_EE =
+      r"""com.ihealth.msg.btdevicemanager.bt.bg5.ee""";
+
+  /// from: static public final java.lang.String IHEALTH_MSG_BG5_EE_EXTRA
+  static const IHEALTH_MSG_BG5_EE_EXTRA =
+      r"""com.ihealth.msg.btdevicemanager.bt.bg5.extra""";
+
+  /// from: static public final java.lang.String MSG_BASECOMMTIMEOUT
+  static const MSG_BASECOMMTIMEOUT = r"""ihealth_base_comm_timeout""";
+
+  /// from: static public final java.lang.String MSG_DISCONNECTED
+  static const MSG_DISCONNECTED = r"""ihealth_disconnect""";
+
+  /// from: static public final long DISCOVERY_AM3
+  static const DISCOVERY_AM3 = 1;
+
+  /// from: static public final long DISCOVERY_AM3S
+  static const DISCOVERY_AM3S = 2;
+
+  /// from: static public final long DISCOVERY_AM4
+  static const DISCOVERY_AM4 = 4;
+
+  /// from: static public final long DISCOVERY_PO3
+  static const DISCOVERY_PO3 = 8;
+
+  /// from: static public final long DISCOVERY_HS4
+  static const DISCOVERY_HS4 = 16;
+
+  /// from: static public final long DISCOVERY_BP3L
+  static const DISCOVERY_BP3L = 32;
+
+  /// from: static public final long DISCOVERY_FDIR_V3
+  static const DISCOVERY_FDIR_V3 = 64;
+
+  /// from: static public final long DISCOVERY_BP550BT
+  static const DISCOVERY_BP550BT = 128;
+
+  /// from: static public final long DISCOVERY_KD926
+  static const DISCOVERY_KD926 = 256;
+
+  /// from: static public final long DISCOVERY_KD723
+  static const DISCOVERY_KD723 = 512;
+
+  /// from: static public final long DISCOVERY_ABPM
+  static const DISCOVERY_ABPM = 1024;
+
+  /// from: static public final long DISCOVERY_CBP
+  static const DISCOVERY_CBP = 2048;
+
+  /// from: static public final long DISCOVERY_BG5S
+  static const DISCOVERY_BG5S = 4096;
+
+  /// from: static public final long DISCOVERY_CBG
+  static const DISCOVERY_CBG = 8192;
+
+  /// from: static public final long DISCOVERY_CPO
+  static const DISCOVERY_CPO = 16384;
+
+  /// from: static public final long DISCOVERY_CHS
+  static const DISCOVERY_CHS = 32768;
+
+  /// from: static public final long DISCOVERY_CBS
+  static const DISCOVERY_CBS = 65536;
+
+  /// from: static public final long DISCOVERY_HS2
+  static const DISCOVERY_HS2 = 131072;
+
+  /// from: static public final long DISCOVERY_BP5S
+  static const DISCOVERY_BP5S = 262144;
+
+  /// from: static public final long DISCOVERY_TS28B
+  static const DISCOVERY_TS28B = 524288;
+
+  /// from: static public final long DISCOVERY_ECG3
+  static const DISCOVERY_ECG3 = 1048576;
+
+  /// from: static public final long DISCOVERY_ECG3_USB
+  static const DISCOVERY_ECG3_USB = 2097152;
+
+  /// from: static public final long DISCOVERY_BP3M
+  static const DISCOVERY_BP3M = 8388608;
+
+  /// from: static public final long DISCOVERY_BP7S
+  static const DISCOVERY_BP7S = 16777216;
+
+  /// from: static public final long DISCOVERY_BP5
+  static const DISCOVERY_BP5 = 33554432;
+
+  /// from: static public final long DISCOVERY_BP7
+  static const DISCOVERY_BP7 = 67108864;
+
+  /// from: static public final long DISCOVERY_HS3
+  static const DISCOVERY_HS3 = 134217728;
+
+  /// from: static public final long DISCOVERY_HS4S
+  static const DISCOVERY_HS4S = 268435456;
+
+  /// from: static public final long DISCOVERY_HS5_BT
+  static const DISCOVERY_HS5_BT = 536870912;
+
+  /// from: static public final long DISCOVERY_HS5_WIFI
+  static const DISCOVERY_HS5_WIFI = 1073741824;
+
+  /// from: static public final long DISCOVERY_BG5
+  static const DISCOVERY_BG5 = 4294967296;
+
+  /// from: static public final long DISCOVERY_AM5
+  static const DISCOVERY_AM5 = 8589934592;
+
+  /// from: static public final long DISCOVERY_BG1S
+  static const DISCOVERY_BG1S = 17179869184;
+
+  /// from: static public final long DISCOVERY_HS2S
+  static const DISCOVERY_HS2S = 34359738368;
+
+  /// from: static public final long DISCOVERY_NT13B
+  static const DISCOVERY_NT13B = 68719476736;
+
+  /// from: static public final long DISCOVERY_PT3SBT
+  static const DISCOVERY_PT3SBT = 137438953472;
+
+  /// from: static public final long DISCOVERY_PO1
+  static const DISCOVERY_PO1 = 274877906944;
+
+  /// from: static public final long DISCOVERY_HS2S_PRO
+  static const DISCOVERY_HS2S_PRO = 549755813888;
+
+  /// from: static public final long DISCOVERY_BG1A
+  static const DISCOVERY_BG1A = 1099511627776;
+
+  /// from: static public final long DISCOVERY_AM6
+  static const DISCOVERY_AM6 = 2199023255552;
+
+  /// from: static public final java.lang.String TYPE_BP3M
+  static const TYPE_BP3M = r"""BP3M""";
+
+  /// from: static public final java.lang.String TYPE_BP3L
+  static const TYPE_BP3L = r"""BP3L""";
+
+  /// from: static public final java.lang.String TYPE_BP5
+  static const TYPE_BP5 = r"""BP5""";
+
+  /// from: static public final java.lang.String TYPE_BP5S
+  static const TYPE_BP5S = r"""BP5S""";
+
+  /// from: static public final java.lang.String TYPE_BP7
+  static const TYPE_BP7 = r"""BP7""";
+
+  /// from: static public final java.lang.String TYPE_BP7S
+  static const TYPE_BP7S = r"""BP7S""";
+
+  /// from: static public final java.lang.String TYPE_550BT
+  static const TYPE_550BT = r"""KN-550BT""";
+
+  /// from: static public final java.lang.String TYPE_KD926
+  static const TYPE_KD926 = r"""KD-926""";
+
+  /// from: static public final java.lang.String TYPE_KD723
+  static const TYPE_KD723 = r"""KD-723""";
+
+  /// from: static public final java.lang.String TYPE_ABPM
+  static const TYPE_ABPM = r"""ABP100""";
+
+  /// from: static public final java.lang.String TYPE_BPM1
+  static const TYPE_BPM1 = r"""BPM1""";
+
+  /// from: static public final java.lang.String TYPE_FDIR_V3
+  static const TYPE_FDIR_V3 = r"""FDIR-V3""";
+
+  /// from: static public final java.lang.String TYPE_BG1
+  static const TYPE_BG1 = r"""BG1""";
+
+  /// from: static public final java.lang.String TYPE_BG1S
+  static const TYPE_BG1S = r"""BG1S""";
+
+  /// from: static public final java.lang.String TYPE_BG1A
+  static const TYPE_BG1A = r"""BG1A""";
+
+  /// from: static public final java.lang.String TYPE_BG5
+  static const TYPE_BG5 = r"""BG5""";
+
+  /// from: static public final java.lang.String TYPE_BG5S
+  static const TYPE_BG5S = r"""BG5S""";
+
+  /// from: static public final java.lang.String TYPE_HS3
+  static const TYPE_HS3 = r"""HS3""";
+
+  /// from: static public final java.lang.String TYPE_HS4
+  static const TYPE_HS4 = r"""HS4""";
+
+  /// from: static public final java.lang.String TYPE_HS4S
+  static const TYPE_HS4S = r"""HS4S""";
+
+  /// from: static public final java.lang.String TYPE_HS5
+  static const TYPE_HS5 = r"""HS5""";
+
+  /// from: static public final java.lang.String TYPE_HS5_BT
+  static const TYPE_HS5_BT = r"""HS5BT""";
+
+  /// from: static public final java.lang.String TYPE_HS5S
+  static const TYPE_HS5S = r"""HS5S""";
+
+  /// from: static public final java.lang.String TYPE_HS6
+  static const TYPE_HS6 = r"""HS6""";
+
+  /// from: static public final java.lang.String TYPE_HS2
+  static const TYPE_HS2 = r"""HS2""";
+
+  /// from: static public final java.lang.String TYPE_HS2S
+  static const TYPE_HS2S = r"""HS2S""";
+
+  /// from: static public final java.lang.String TYPE_HS2SPRO
+  static const TYPE_HS2SPRO = r"""HS2S Pro""";
+
+  /// from: static public final java.lang.String TYPE_AM3
+  static const TYPE_AM3 = r"""AM3""";
+
+  /// from: static public final java.lang.String TYPE_AM3S
+  static const TYPE_AM3S = r"""AM3S""";
+
+  /// from: static public final java.lang.String TYPE_AM4
+  static const TYPE_AM4 = r"""AM4""";
+
+  /// from: static public final java.lang.String TYPE_PO3
+  static const TYPE_PO3 = r"""PO3""";
+
+  /// from: static public final java.lang.String TYPE_TS28B
+  static const TYPE_TS28B = r"""TS28B""";
+
+  /// from: static public final java.lang.String TYPE_NT13B
+  static const TYPE_NT13B = r"""NT13B""";
+
+  /// from: static public final java.lang.String TYPE_ECG3
+  static const TYPE_ECG3 = r"""ECG3""";
+
+  /// from: static public final java.lang.String TYPE_ECG3_USB
+  static const TYPE_ECG3_USB = r"""ECGUSB""";
+
+  /// from: static public final java.lang.String TYPE_CBP
+  static const TYPE_CBP = r"""CBP""";
+
+  /// from: static public final java.lang.String TYPE_CBG
+  static const TYPE_CBG = r"""CBG""";
+
+  /// from: static public final java.lang.String TYPE_CPO
+  static const TYPE_CPO = r"""CPO""";
+
+  /// from: static public final java.lang.String TYPE_CHS
+  static const TYPE_CHS = r"""CHS""";
+
+  /// from: static public final java.lang.String TYPE_CBS
+  static const TYPE_CBS = r"""CBS""";
+
+  /// from: static public final java.lang.String TYPE_AM5
+  static const TYPE_AM5 = r"""AM5""";
+
+  /// from: static public final java.lang.String TYPE_PT3SBT
+  static const TYPE_PT3SBT = r"""PT3SBT""";
+
+  /// from: static public final java.lang.String TYPE_PO1
+  static const TYPE_PO1 = r"""PO1""";
+
+  /// from: static public final java.lang.String TYPE_AM6
+  static const TYPE_AM6 = r"""AM6""";
+
+  static final _get_commandCacheControlMap = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                jni.JObjectPtr,
+              )>>("get_iHealthDevicesManager__commandCacheControlMap")
+      .asFunction<
+          jni.JniResult Function(
+            jni.JObjectPtr,
+          )>();
+
+  /// from: public final java.util.Map commandCacheControlMap
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JMap<jni.JString, jni.JObject> get commandCacheControlMap =>
+      const jni.JMapType(jni.JStringType(), jni.JObjectType())
+          .fromRef(_get_commandCacheControlMap(reference).object);
+
+  static final _get_licenseByteArrCache =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_iHealthDevicesManager__licenseByteArrCache")
+          .asFunction<jni.JniResult Function()>();
+
+  static final _set_licenseByteArrCache = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "set_iHealthDevicesManager__licenseByteArrCache")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public byte[] licenseByteArrCache
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JArray<jni.jbyte> get licenseByteArrCache =>
+      const jni.JArrayType(jni.jbyteType())
+          .fromRef(_get_licenseByteArrCache().object);
+
+  /// from: static public byte[] licenseByteArrCache
+  /// The returned object must be released after use, by calling the [release] method.
+  static set licenseByteArrCache(jni.JArray<jni.jbyte> value) =>
+      _set_licenseByteArrCache(value.reference).check();
+
+  /// from: static public final int DEVICE_STATE_CONNECTING
+  static const DEVICE_STATE_CONNECTING = 0;
+
+  /// from: static public final int DEVICE_STATE_CONNECTED
+  static const DEVICE_STATE_CONNECTED = 1;
+
+  /// from: static public final int DEVICE_STATE_DISCONNECTED
+  static const DEVICE_STATE_DISCONNECTED = 2;
+
+  /// from: static public final int DEVICE_STATE_CONNECTIONFAIL
+  static const DEVICE_STATE_CONNECTIONFAIL = 3;
+
+  /// from: static public final int DEVICE_STATE_RECONNECTING
+  static const DEVICE_STATE_RECONNECTING = 4;
+
+  /// from: static public final int SDK_STATUS_BLUETOOTH_DISABLE
+  static const SDK_STATUS_BLUETOOTH_DISABLE = 501;
+
+  /// from: static public final int SDK_STATUS_LOCATION_DISABLE
+  static const SDK_STATUS_LOCATION_DISABLE = 502;
+
+  /// from: static public final int SDK_STATUS_BLUETOOTH_PERMISSION
+  static const SDK_STATUS_BLUETOOTH_PERMISSION = 503;
+
+  /// from: static public final int SDK_STATUS_LICENSE_NOT_FOUND
+  static const SDK_STATUS_LICENSE_NOT_FOUND = 504;
+
+  /// from: static public final int SDK_STATUS_LICENSE_EXPIRED
+  static const SDK_STATUS_LICENSE_EXPIRED = 505;
+
+  /// from: static public final int SDK_STATUS_LICENSE_DEVICE_PERMISSION
+  static const SDK_STATUS_LICENSE_DEVICE_PERMISSION = 506;
+
+  static final _get_mBtleCallback = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                jni.JObjectPtr,
+              )>>("get_iHealthDevicesManager__mBtleCallback")
+      .asFunction<
+          jni.JniResult Function(
+            jni.JObjectPtr,
+          )>();
+
+  static final _set_mBtleCallback = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      jni.JObjectPtr, ffi.Pointer<ffi.Void>)>>(
+          "set_iHealthDevicesManager__mBtleCallback")
+      .asFunction<
+          jni.JniResult Function(jni.JObjectPtr, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.base.ble.BtleCallback mBtleCallback
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject get mBtleCallback =>
+      const jni.JObjectType().fromRef(_get_mBtleCallback(reference).object);
+
+  /// from: public com.ihealth.communication.base.ble.BtleCallback mBtleCallback
+  /// The returned object must be released after use, by calling the [release] method.
+  set mBtleCallback(jni.JObject value) =>
+      _set_mBtleCallback(reference, value.reference).check();
+
+  static final _get_mSDKStatusThread = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                jni.JObjectPtr,
+              )>>("get_iHealthDevicesManager__mSDKStatusThread")
+      .asFunction<
+          jni.JniResult Function(
+            jni.JObjectPtr,
+          )>();
+
+  static final _set_mSDKStatusThread = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      jni.JObjectPtr, ffi.Pointer<ffi.Void>)>>(
+          "set_iHealthDevicesManager__mSDKStatusThread")
+      .asFunction<
+          jni.JniResult Function(jni.JObjectPtr, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.manager.iHealthDevicesManager$e mSDKStatusThread
+  /// The returned object must be released after use, by calling the [release] method.
+  iHealthDevicesManager_e get mSDKStatusThread =>
+      const $iHealthDevicesManager_eType()
+          .fromRef(_get_mSDKStatusThread(reference).object);
+
+  /// from: public com.ihealth.communication.manager.iHealthDevicesManager$e mSDKStatusThread
+  /// The returned object must be released after use, by calling the [release] method.
+  set mSDKStatusThread(iHealthDevicesManager_e value) =>
+      _set_mSDKStatusThread(reference, value.reference).check();
+
+  static final _new0 = jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+          "iHealthDevicesManager__new0")
+      .asFunction<jni.JniResult Function()>();
+
+  /// from: public void <init>()
+  /// The returned object must be released after use, by calling the [release] method.
+  factory iHealthDevicesManager() {
+    return iHealthDevicesManager.fromRef(_new0().object);
+  }
+
+  static final _getInstance =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "iHealthDevicesManager__getInstance")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public com.ihealth.communication.manager.iHealthDevicesManager getInstance()
+  /// The returned object must be released after use, by calling the [release] method.
+  static iHealthDevicesManager getInstance() {
+    return const $iHealthDevicesManagerType().fromRef(_getInstance().object);
+  }
+
+  static final _getContext = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getContext")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public android.content.Context getContext()
+  /// The returned object must be released after use, by calling the [release] method.
+  Context getContext() {
+    return const $ContextType().fromRef(_getContext(reference).object);
+  }
+
+  static final _init = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Int32,
+                  ffi.Int32)>>("iHealthDevicesManager__init")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int, int)>();
+
+  /// from: public void init(android.app.Application application, int i, int i1)
+  void init(
+    jni.JObject application,
+    int i,
+    int i1,
+  ) {
+    return _init(reference, application.reference, i, i1).check();
+  }
+
+  static final _onDiscover = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Int32,
+                  ffi.Pointer<ffi.Void>)>>("iHealthDevicesManager__onDiscover")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void onDiscover(java.lang.String string, com.ihealth.communication.manager.d d, int i, java.util.Map map)
+  void onDiscover(
+    jni.JString string,
+    jni.JObject d,
+    int i,
+    jni.JMap<jni.JString, jni.JObject> map,
+  ) {
+    return _onDiscover(
+            reference, string.reference, d.reference, i, map.reference)
+        .check();
+  }
+
+  static final _destroy = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__destroy")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void destroy()
+  void destroy() {
+    return _destroy(reference).check();
+  }
+
+  static final _disconnectAllDevices = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Uint8)>>("iHealthDevicesManager__disconnectAllDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
+
+  /// from: public void disconnectAllDevices(boolean z)
+  void disconnectAllDevices(
+    bool z,
+  ) {
+    return _disconnectAllDevices(reference, z ? 1 : 0).check();
+  }
+
+  static final _sdkAuthWithLicense = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__sdkAuthWithLicense")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public boolean sdkAuthWithLicense(byte[] bs)
+  bool sdkAuthWithLicense(
+    jni.JArray<jni.jbyte> bs,
+  ) {
+    return _sdkAuthWithLicense(reference, bs.reference).boolean;
+  }
+
+  static final _connectDevice = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__connectDevice")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public boolean connectDevice(java.lang.String string, java.lang.String string1, java.lang.String string2)
+  bool connectDevice(
+    jni.JString string,
+    jni.JString string1,
+    jni.JString string2,
+  ) {
+    return _connectDevice(
+            reference, string.reference, string1.reference, string2.reference)
+        .boolean;
+  }
+
+  static final _connectDevice1 = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__connectDevice1")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public boolean connectDevice(java.lang.String string, java.lang.String string1)
+  bool connectDevice1(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return _connectDevice1(reference, string.reference, string1.reference)
+        .boolean;
+  }
+
+  static final _sdkAuthWithAppSecret = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__sdkAuthWithAppSecret")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public boolean sdkAuthWithAppSecret(android.content.Context context, java.lang.String string)
+  bool sdkAuthWithAppSecret(
+    Context context,
+    jni.JString string,
+  ) {
+    return _sdkAuthWithAppSecret(reference, context.reference, string.reference)
+        .boolean;
+  }
+
+  static final _connectTherm = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Int32,
+                  ffi.Int32,
+                  ffi.Int32,
+                  ffi.Int32,
+                  ffi.Int32,
+                  ffi.Int32)>>("iHealthDevicesManager__connectTherm")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              int,
+              int,
+              int,
+              int,
+              int,
+              int)>();
+
+  /// from: public boolean connectTherm(java.lang.String string, java.lang.String string1, java.lang.String string2, int i, int i1, int i2, int i3, int i4, int i5)
+  bool connectTherm(
+    jni.JString string,
+    jni.JString string1,
+    jni.JString string2,
+    int i,
+    int i1,
+    int i2,
+    int i3,
+    int i4,
+    int i5,
+  ) {
+    return _connectTherm(reference, string.reference, string1.reference,
+            string2.reference, i, i1, i2, i3, i4, i5)
+        .boolean;
+  }
+
+  static final _getBp3lControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBp3lControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Bp3lControl getBp3lControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getBp3lControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getBp3lControl(reference, string.reference).object);
+  }
+
+  static final _getBp3lDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBp3lDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getBp3lDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getBp3lDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getBp3lDevices(reference).object);
+  }
+
+  static final _getBp5Control = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBp5Control")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Bp5Control getBp5Control(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getBp5Control(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getBp5Control(reference, string.reference).object);
+  }
+
+  static final _getBp5Devices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBp5Devices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getBp5Devices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getBp5Devices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getBp5Devices(reference).object);
+  }
+
+  static final _getBp5sControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBp5sControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Bp5sControl getBp5sControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getBp5sControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getBp5sControl(reference, string.reference).object);
+  }
+
+  static final _getBp5sDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBp5sDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getBp5sDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getBp5sDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getBp5sDevices(reference).object);
+  }
+
+  static final _getBp7Control = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBp7Control")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Bp7Control getBp7Control(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getBp7Control(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getBp7Control(reference, string.reference).object);
+  }
+
+  static final _getBp7Devices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBp7Devices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getBp7Devices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getBp7Devices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getBp7Devices(reference).object);
+  }
+
+  static final _getBp7sControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBp7sControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Bp7sControl getBp7sControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getBp7sControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getBp7sControl(reference, string.reference).object);
+  }
+
+  static final _getBp7sDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBp7sDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getBp7sDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getBp7sDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getBp7sDevices(reference).object);
+  }
+
+  static final _getBp550BTControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBp550BTControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Bp550BTControl getBp550BTControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getBp550BTControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getBp550BTControl(reference, string.reference).object);
+  }
+
+  static final _getBp550BTDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBp550BTDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getBp550BTDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getBp550BTDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getBp550BTDevices(reference).object);
+  }
+
+  static final _getBp926Control = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBp926Control")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Bp926Control getBp926Control(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getBp926Control(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getBp926Control(reference, string.reference).object);
+  }
+
+  static final _getBp926Devices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBp926Devices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getBp926Devices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getBp926Devices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getBp926Devices(reference).object);
+  }
+
+  static final _getBp723Control = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBp723Control")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Bp723Control getBp723Control(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getBp723Control(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getBp723Control(reference, string.reference).object);
+  }
+
+  static final _getBp723Devices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBp723Devices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getBp723Devices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getBp723Devices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getBp723Devices(reference).object);
+  }
+
+  static final _getABPMControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getABPMControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.ABPMControl getABPMControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getABPMControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getABPMControl(reference, string.reference).object);
+  }
+
+  static final _getABPMDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getABPMDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getABPMDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getABPMDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getABPMDevices(reference).object);
+  }
+
+  static final _getPo3Control = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getPo3Control")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Po3Control getPo3Control(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getPo3Control(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getPo3Control(reference, string.reference).object);
+  }
+
+  static final _getPo3Devices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getPo3Devices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getPo3Devices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getPo3Devices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getPo3Devices(reference).object);
+  }
+
+  static final _getAm3Control = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getAm3Control")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Am3Control getAm3Control(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getAm3Control(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getAm3Control(reference, string.reference).object);
+  }
+
+  static final _getAm3Devices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getAm3Devices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getAm3Devices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getAm3Devices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getAm3Devices(reference).object);
+  }
+
+  static final _getAm3sControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getAm3sControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Am3sControl getAm3sControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getAm3sControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getAm3sControl(reference, string.reference).object);
+  }
+
+  static final _getAm3sDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getAm3sDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getAm3sDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getAm3sDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getAm3sDevices(reference).object);
+  }
+
+  static final _getAm4Control = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getAm4Control")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Am4Control getAm4Control(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getAm4Control(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getAm4Control(reference, string.reference).object);
+  }
+
+  static final _getAm4Devices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getAm4Devices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getAm4Devices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getAm4Devices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getAm4Devices(reference).object);
+  }
+
+  static final _getAm5Control = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getAm5Control")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Am5Control getAm5Control(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getAm5Control(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getAm5Control(reference, string.reference).object);
+  }
+
+  static final _getAm5Devices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getAm5Devices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getAm5Devices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getAm5Devices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getAm5Devices(reference).object);
+  }
+
+  static final _getAm6Control = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getAm6Control")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Am6Control getAm6Control(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getAm6Control(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getAm6Control(reference, string.reference).object);
+  }
+
+  static final _getAm6Devices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getAm6Devices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getAm6Devices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getAm6Devices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getAm6Devices(reference).object);
+  }
+
+  static final _getHs3Control = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getHs3Control")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Hs3Control getHs3Control(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getHs3Control(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getHs3Control(reference, string.reference).object);
+  }
+
+  static final _getHs3Devices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getHs3Devices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getHs3Devices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getHs3Devices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getHs3Devices(reference).object);
+  }
+
+  static final _getHs4Control = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getHs4Control")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Hs4Control getHs4Control(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getHs4Control(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getHs4Control(reference, string.reference).object);
+  }
+
+  static final _getHs4Devices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getHs4Devices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getHs4Devices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getHs4Devices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getHs4Devices(reference).object);
+  }
+
+  static final _getHs4sControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getHs4sControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Hs4sControl getHs4sControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getHs4sControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getHs4sControl(reference, string.reference).object);
+  }
+
+  static final _getHs4sDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getHs4sDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getHs4sDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getHs4sDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getHs4sDevices(reference).object);
+  }
+
+  static final _getHs5ControlForBt = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getHs5ControlForBt")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Hs5ControlForBt getHs5ControlForBt(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getHs5ControlForBt(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getHs5ControlForBt(reference, string.reference).object);
+  }
+
+  static final _getHs5Control = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getHs5Control")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Hs5Control getHs5Control(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getHs5Control(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getHs5Control(reference, string.reference).object);
+  }
+
+  static final _getHs5Number = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getHs5Number")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public int getHs5Number()
+  int getHs5Number() {
+    return _getHs5Number(reference).integer;
+  }
+
+  static final _getHs2Control = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getHs2Control")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Hs2Control getHs2Control(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getHs2Control(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getHs2Control(reference, string.reference).object);
+  }
+
+  static final _getHs2Devices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getHs2Devices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getHs2Devices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getHs2Devices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getHs2Devices(reference).object);
+  }
+
+  static final _getHs2sControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getHs2sControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Hs2sControl getHs2sControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getHs2sControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getHs2sControl(reference, string.reference).object);
+  }
+
+  static final _getHs2sDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getHs2sDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getHs2sDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getHs2sDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getHs2sDevices(reference).object);
+  }
+
+  static final _getHs2sProControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getHs2sProControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Hs2sProControl getHs2sProControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getHs2sProControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getHs2sProControl(reference, string.reference).object);
+  }
+
+  static final _getHs2sProDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getHs2sProDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getHs2sProDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getHs2sProDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getHs2sProDevices(reference).object);
+  }
+
+  static final _getBg5Control = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBg5Control")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Bg5Control getBg5Control(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getBg5Control(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getBg5Control(reference, string.reference).object);
+  }
+
+  static final _getBg5Devices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBg5Devices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getBg5Devices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getBg5Devices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getBg5Devices(reference).object);
+  }
+
+  static final _getBg5sControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBg5sControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Bg5sControl getBg5sControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getBg5sControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getBg5sControl(reference, string.reference).object);
+  }
+
+  static final _getBg5sDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBg5sDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getBg5sDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getBg5sDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getBg5sDevices(reference).object);
+  }
+
+  static final _getBtmControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBtmControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.BtmControl getBtmControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getBtmControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getBtmControl(reference, string.reference).object);
+  }
+
+  static final _getBTMDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBTMDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getBTMDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getBTMDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getBTMDevices(reference).object);
+  }
+
+  static final _getAbiControlforUp = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getAbiControlforUp")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.AbiControl getAbiControlforUp(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getAbiControlforUp(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getAbiControlforUp(reference, string.reference).object);
+  }
+
+  static final _getAbiControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getAbiControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.AbiControl getAbiControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getAbiControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getAbiControl(reference, string.reference).object);
+  }
+
+  static final _getBPControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBPControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.BPControl getBPControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getBPControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getBPControl(reference, string.reference).object);
+  }
+
+  static final _getBPDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBPDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getBPDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getBPDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getBPDevices(reference).object);
+  }
+
+  static final _getBgControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBgControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.BgControl getBgControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getBgControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getBgControl(reference, string.reference).object);
+  }
+
+  static final _getBgDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBgDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getBgDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getBgDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getBgDevices(reference).object);
+  }
+
+  static final _getPoControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getPoControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.PoControl getPoControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getPoControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getPoControl(reference, string.reference).object);
+  }
+
+  static final _getPoDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getPoDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getPoDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getPoDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getPoDevices(reference).object);
+  }
+
+  static final _getHsControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getHsControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.HsControl getHsControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getHsControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getHsControl(reference, string.reference).object);
+  }
+
+  static final _getHsDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getHsDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getHsDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getHsDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getHsDevices(reference).object);
+  }
+
+  static final _getBsControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBsControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.BsControl getBsControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getBsControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getBsControl(reference, string.reference).object);
+  }
+
+  static final _getBsDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBsDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getBsDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getBsDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getBsDevices(reference).object);
+  }
+
+  static final _getTS28BControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getTS28BControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.TS28BControl getTS28BControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getTS28BControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getTS28BControl(reference, string.reference).object);
+  }
+
+  static final _getTS28BDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getTS28BDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getTS28BDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getTS28BDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getTS28BDevices(reference).object);
+  }
+
+  static final _getNT13BControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getNT13BControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.NT13BControl getNT13BControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getNT13BControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getNT13BControl(reference, string.reference).object);
+  }
+
+  static final _getNT13BDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getNT13BDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getNT13BDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getNT13BDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getNT13BDevices(reference).object);
+  }
+
+  static final _getECG3Control = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getECG3Control")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.ECG3Control getECG3Control(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getECG3Control(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getECG3Control(reference, string.reference).object);
+  }
+
+  static final _getECG3Devices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getECG3Devices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getECG3Devices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getECG3Devices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getECG3Devices(reference).object);
+  }
+
+  static final _getECG3USBControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getECG3USBControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.ECG3USBControl getECG3USBControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getECG3USBControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getECG3USBControl(reference, string.reference).object);
+  }
+
+  static final _getECG3USBDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getECG3USBDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getECG3USBDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getECG3USBDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getECG3USBDevices(reference).object);
+  }
+
+  static final _getBg1sControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBg1sControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Bg1sControl getBg1sControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getBg1sControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getBg1sControl(reference, string.reference).object);
+  }
+
+  static final _getBg1sDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBg1sDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getBg1sDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getBg1sDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getBg1sDevices(reference).object);
+  }
+
+  static final _getBg1aControl = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBg1aControl")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Bg1aControl getBg1aControl(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getBg1aControl(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getBg1aControl(reference, string.reference).object);
+  }
+
+  static final _getBg1aDevices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getBg1aDevices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getBg1aDevices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getBg1aDevices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getBg1aDevices(reference).object);
+  }
+
+  static final _getPt3sbtDevice = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getPt3sbtDevice")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Pt3sbtControl getPt3sbtDevice(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getPt3sbtDevice(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getPt3sbtDevice(reference, string.reference).object);
+  }
+
+  static final _getPt3Devices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getPt3Devices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getPt3Devices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getPt3Devices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getPt3Devices(reference).object);
+  }
+
+  static final _getPo1Device = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getPo1Device")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.control.Po1Control getPo1Device(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getPo1Device(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getPo1Device(reference, string.reference).object);
+  }
+
+  static final _getPo1Devices = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getPo1Devices")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getPo1Devices()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getPo1Devices() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getPo1Devices(reference).object);
+  }
+
+  static final _getEE = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("iHealthDevicesManager__getEE")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.lang.String getEE(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getEE(
+    jni.JString string,
+  ) {
+    return const jni.JStringType()
+        .fromRef(_getEE(reference, string.reference).object);
+  }
+
+  static final _disconnectDevice = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__disconnectDevice")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void disconnectDevice(java.lang.String string, java.lang.String string1)
+  void disconnectDevice(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return _disconnectDevice(reference, string.reference, string1.reference)
+        .check();
+  }
+
+  static final _registerClientCallback = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__registerClientCallback")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public int registerClientCallback(com.ihealth.communication.manager.iHealthDevicesCallback iHealthDevicesCallback)
+  int registerClientCallback(
+    iHealthDevicesCallback iHealthDevicesCallback,
+  ) {
+    return _registerClientCallback(reference, iHealthDevicesCallback.reference)
+        .integer;
+  }
+
+  static final _addCallbackFilterForAddress = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Int32,
+                      ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__addCallbackFilterForAddress")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public boolean addCallbackFilterForAddress(int i, java.lang.String[] strings)
+  bool addCallbackFilterForAddress(
+    int i,
+    jni.JArray<jni.JString> strings,
+  ) {
+    return _addCallbackFilterForAddress(reference, i, strings.reference)
+        .boolean;
+  }
+
+  static final _addCallbackFilterForDeviceType = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Int32,
+                      ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__addCallbackFilterForDeviceType")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, int, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public boolean addCallbackFilterForDeviceType(int i, java.lang.String[] strings)
+  bool addCallbackFilterForDeviceType(
+    int i,
+    jni.JArray<jni.JString> strings,
+  ) {
+    return _addCallbackFilterForDeviceType(reference, i, strings.reference)
+        .boolean;
+  }
+
+  static final _unRegisterClientCallback = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Int32)>>(
+          "iHealthDevicesManager__unRegisterClientCallback")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
+
+  /// from: public void unRegisterClientCallback(int i)
+  void unRegisterClientCallback(
+    int i,
+  ) {
+    return _unRegisterClientCallback(reference, i).check();
+  }
+
+  static final _startDiscovery = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__startDiscovery")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void startDiscovery(com.ihealth.communication.manager.DiscoveryTypeEnum discoveryTypeEnum)
+  void startDiscovery(
+    DiscoveryTypeEnum discoveryTypeEnum,
+  ) {
+    return _startDiscovery(reference, discoveryTypeEnum.reference).check();
+  }
+
+  static final _isDiscovering = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__isDiscovering")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public boolean isDiscovering()
+  bool isDiscovering() {
+    return _isDiscovering(reference).boolean;
+  }
+
+  static final _stopDiscovery = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__stopDiscovery")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void stopDiscovery()
+  void stopDiscovery() {
+    return _stopDiscovery(reference).check();
+  }
+
+  static final _checkSupportOTG = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__checkSupportOTG")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public boolean checkSupportOTG()
+  bool checkSupportOTG() {
+    return _checkSupportOTG(reference).boolean;
+  }
+
+  static final _getIdps = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("iHealthDevicesManager__getIdps")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.utils.IDPS getIdps(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getIdps(
+    jni.JString string,
+  ) {
+    return const jni.JObjectType()
+        .fromRef(_getIdps(reference, string.reference).object);
+  }
+
+  static final _getDevicesIDPS = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getDevicesIDPS")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.lang.String getDevicesIDPS(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getDevicesIDPS(
+    jni.JString string,
+  ) {
+    return const jni.JStringType()
+        .fromRef(_getDevicesIDPS(reference, string.reference).object);
+  }
+
+  static final _getSDKLogPathList = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getSDKLogPathList")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.List getSDKLogPathList()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JList<jni.JString> getSDKLogPathList() {
+    return const jni.JListType(jni.JStringType())
+        .fromRef(_getSDKLogPathList(reference).object);
+  }
+
+  static final _clearSDKLog = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__clearSDKLog")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void clearSDKLog()
+  void clearSDKLog() {
+    return _clearSDKLog(reference).check();
+  }
+
+  static final _getDeviceType = jniLookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getDeviceType")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.lang.String getDeviceType(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString getDeviceType(
+    jni.JString string,
+  ) {
+    return const jni.JStringType()
+        .fromRef(_getDeviceType(reference, string.reference).object);
+  }
+
+  static final _getSDKInfo = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "iHealthDevicesManager__getSDKInfo")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public com.ihealth.communication.utils.SDKInfo getSDKInfo()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JObject getSDKInfo() {
+    return const jni.JObjectType().fromRef(_getSDKInfo(reference).object);
+  }
+}
+
+final class $iHealthDevicesManagerType
+    extends jni.JObjType<iHealthDevicesManager> {
+  const $iHealthDevicesManagerType();
+
+  @override
+  String get signature =>
+      r"Lcom/ihealth/communication/manager/iHealthDevicesManager;";
+
+  @override
+  iHealthDevicesManager fromRef(jni.JObjectPtr ref) =>
+      iHealthDevicesManager.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($iHealthDevicesManagerType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($iHealthDevicesManagerType) &&
+        other is $iHealthDevicesManagerType;
+  }
+}
+
+/// from: com.ihealth.communication.utils.Log$Level
+class Log_Level extends jni.JObject {
+  @override
+  late final jni.JObjType<Log_Level> $type = type;
+
+  Log_Level.fromRef(
+    jni.JObjectPtr ref,
+  ) : super.fromRef(ref);
+
+  /// The type which includes information such as the signature of this class.
+  static const type = $Log_LevelType();
+  static final _get_VERBOSE =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_Log_Level__VERBOSE")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.utils.Log$Level VERBOSE
+  /// The returned object must be released after use, by calling the [release] method.
+  static Log_Level get VERBOSE =>
+      const $Log_LevelType().fromRef(_get_VERBOSE().object);
+
+  static final _get_DEBUG =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_Log_Level__DEBUG")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.utils.Log$Level DEBUG
+  /// The returned object must be released after use, by calling the [release] method.
+  static Log_Level get DEBUG =>
+      const $Log_LevelType().fromRef(_get_DEBUG().object);
+
+  static final _get_INFO =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_Log_Level__INFO")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.utils.Log$Level INFO
+  /// The returned object must be released after use, by calling the [release] method.
+  static Log_Level get INFO =>
+      const $Log_LevelType().fromRef(_get_INFO().object);
+
+  static final _get_WARN =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_Log_Level__WARN")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.utils.Log$Level WARN
+  /// The returned object must be released after use, by calling the [release] method.
+  static Log_Level get WARN =>
+      const $Log_LevelType().fromRef(_get_WARN().object);
+
+  static final _get_ERROR =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "get_Log_Level__ERROR")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public final com.ihealth.communication.utils.Log$Level ERROR
+  /// The returned object must be released after use, by calling the [release] method.
+  static Log_Level get ERROR =>
+      const $Log_LevelType().fromRef(_get_ERROR().object);
+
+  static final _values =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "Log_Level__values")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public com.ihealth.communication.utils.Log$Level[] values()
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JArray<Log_Level> values() {
+    return const jni.JArrayType($Log_LevelType()).fromRef(_values().object);
+  }
+
+  static final _valueOf = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Log_Level__valueOf")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public com.ihealth.communication.utils.Log$Level valueOf(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  static Log_Level valueOf(
+    jni.JString string,
+  ) {
+    return const $Log_LevelType().fromRef(_valueOf(string.reference).object);
+  }
+}
+
+final class $Log_LevelType extends jni.JObjType<Log_Level> {
+  const $Log_LevelType();
+
+  @override
+  String get signature => r"Lcom/ihealth/communication/utils/Log$Level;";
+
+  @override
+  Log_Level fromRef(jni.JObjectPtr ref) => Log_Level.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($Log_LevelType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($Log_LevelType) && other is $Log_LevelType;
+  }
+}
+
+/// from: com.ihealth.communication.utils.Log
+class Log extends jni.JObject {
+  @override
+  late final jni.JObjType<Log> $type = type;
+
+  Log.fromRef(
+    jni.JObjectPtr ref,
+  ) : super.fromRef(ref);
+
+  /// The type which includes information such as the signature of this class.
+  static const type = $LogType();
+  static final _v = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log__v")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public void v(java.lang.String string, java.lang.String string1)
+  static void v(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return _v(string.reference, string1.reference).check();
+  }
+
+  static final _d = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log__d")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public void d(java.lang.String string, java.lang.String string1)
+  static void d(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return _d(string.reference, string1.reference).check();
+  }
+
+  static final _i = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log__i")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public void i(java.lang.String string, java.lang.String string1)
+  static void i(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return _i(string.reference, string1.reference).check();
+  }
+
+  static final _w = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log__w")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public void w(java.lang.String string, java.lang.String string1)
+  static void w(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return _w(string.reference, string1.reference).check();
+  }
+
+  static final _e = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log__e")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public void e(java.lang.String string, java.lang.String string1)
+  static void e(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return _e(string.reference, string1.reference).check();
+  }
+
+  static final _p = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Log__p")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public void p(java.lang.String string, com.ihealth.communication.utils.Log$Level level, java.lang.String string1, java.lang.Object[] objects)
+  static void p(
+    jni.JString string,
+    Log_Level level,
+    jni.JString string1,
+    jni.JArray<jni.JObject> objects,
+  ) {
+    return _p(string.reference, level.reference, string1.reference,
+            objects.reference)
+        .check();
+  }
+}
+
+final class $LogType extends jni.JObjType<Log> {
+  const $LogType();
+
+  @override
+  String get signature => r"Lcom/ihealth/communication/utils/Log;";
+
+  @override
+  Log fromRef(jni.JObjectPtr ref) => Log.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($LogType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($LogType) && other is $LogType;
+  }
+}
+
+/// from: java.io.InputStream
+class InputStream extends jni.JObject {
+  @override
+  late final jni.JObjType<InputStream> $type = type;
+
+  InputStream.fromRef(
+    jni.JObjectPtr ref,
+  ) : super.fromRef(ref);
+
+  /// The type which includes information such as the signature of this class.
+  static const type = $InputStreamType();
+  static final _new0 = jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+          "InputStream__new0")
+      .asFunction<jni.JniResult Function()>();
+
+  /// from: public void <init>()
+  /// The returned object must be released after use, by calling the [release] method.
+  factory InputStream() {
+    return InputStream.fromRef(_new0().object);
+  }
+
+  static final _nullInputStream =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>(
+              "InputStream__nullInputStream")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public java.io.InputStream nullInputStream()
+  /// The returned object must be released after use, by calling the [release] method.
+  static InputStream nullInputStream() {
+    return const $InputStreamType().fromRef(_nullInputStream().object);
+  }
+
+  static final _read = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "InputStream__read")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract int read()
+  int read() {
+    return _read(reference).integer;
+  }
+
+  static final _read1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("InputStream__read1")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public int read(byte[] bs)
+  int read1(
+    jni.JArray<jni.jbyte> bs,
+  ) {
+    return _read1(reference, bs.reference).integer;
+  }
+
+  static final _read2 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Int32,
+                  ffi.Int32)>>("InputStream__read2")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int, int)>();
+
+  /// from: public int read(byte[] bs, int i, int i1)
+  int read2(
+    jni.JArray<jni.jbyte> bs,
+    int i,
+    int i1,
+  ) {
+    return _read2(reference, bs.reference, i, i1).integer;
+  }
+
+  static final _readAllBytes = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "InputStream__readAllBytes")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public byte[] readAllBytes()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.jbyte> readAllBytes() {
+    return const jni.JArrayType(jni.jbyteType())
+        .fromRef(_readAllBytes(reference).object);
+  }
+
+  static final _readNBytes = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Int32)>>("InputStream__readNBytes")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
+
+  /// from: public byte[] readNBytes(int i)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JArray<jni.jbyte> readNBytes(
+    int i,
+  ) {
+    return const jni.JArrayType(jni.jbyteType())
+        .fromRef(_readNBytes(reference, i).object);
+  }
+
+  static final _readNBytes1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Int32,
+                  ffi.Int32)>>("InputStream__readNBytes1")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int, int)>();
+
+  /// from: public int readNBytes(byte[] bs, int i, int i1)
+  int readNBytes1(
+    jni.JArray<jni.jbyte> bs,
+    int i,
+    int i1,
+  ) {
+    return _readNBytes1(reference, bs.reference, i, i1).integer;
+  }
+
+  static final _skip = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Int64)>>("InputStream__skip")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
+
+  /// from: public long skip(long j)
+  int skip(
+    int j,
+  ) {
+    return _skip(reference, j).long;
+  }
+
+  static final _skipNBytes = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Int64)>>("InputStream__skipNBytes")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
+
+  /// from: public void skipNBytes(long j)
+  void skipNBytes(
+    int j,
+  ) {
+    return _skipNBytes(reference, j).check();
+  }
+
+  static final _available = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "InputStream__available")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public int available()
+  int available() {
+    return _available(reference).integer;
+  }
+
+  static final _close = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "InputStream__close")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void close()
+  void close() {
+    return _close(reference).check();
+  }
+
+  static final _mark = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Int32)>>("InputStream__mark")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
+
+  /// from: public void mark(int i)
+  void mark(
+    int i,
+  ) {
+    return _mark(reference, i).check();
+  }
+
+  static final _reset = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "InputStream__reset")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void reset()
+  void reset() {
+    return _reset(reference).check();
+  }
+
+  static final _markSupported = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "InputStream__markSupported")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public boolean markSupported()
+  bool markSupported() {
+    return _markSupported(reference).boolean;
+  }
+
+  static final _transferTo = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("InputStream__transferTo")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public long transferTo(java.io.OutputStream outputStream)
+  int transferTo(
+    jni.JObject outputStream,
+  ) {
+    return _transferTo(reference, outputStream.reference).long;
+  }
+}
+
+final class $InputStreamType extends jni.JObjType<InputStream> {
+  const $InputStreamType();
+
+  @override
+  String get signature => r"Ljava/io/InputStream;";
+
+  @override
+  InputStream fromRef(jni.JObjectPtr ref) => InputStream.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($InputStreamType).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($InputStreamType) && other is $InputStreamType;
+  }
+}
+
+/// from: android.util.Log
+class Log1 extends jni.JObject {
+  @override
+  late final jni.JObjType<Log1> $type = type;
+
+  Log1.fromRef(
+    jni.JObjectPtr ref,
+  ) : super.fromRef(ref);
+
+  /// The type which includes information such as the signature of this class.
+  static const type = $Log1Type();
+
+  /// from: static public final int ASSERT
+  static const ASSERT = 7;
+
+  /// from: static public final int DEBUG
+  static const DEBUG = 3;
+
+  /// from: static public final int ERROR
+  static const ERROR = 6;
+
+  /// from: static public final int INFO
+  static const INFO = 4;
+
+  /// from: static public final int VERBOSE
+  static const VERBOSE = 2;
+
+  /// from: static public final int WARN
+  static const WARN = 5;
+
+  static final _v = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log1__v")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public int v(java.lang.String string, java.lang.String string1)
+  static int v(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return _v(string.reference, string1.reference).integer;
+  }
+
+  static final _v1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log1__v1")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public int v(java.lang.String string, java.lang.String string1, java.lang.Throwable throwable)
+  static int v1(
+    jni.JString string,
+    jni.JString string1,
+    jni.JObject throwable,
+  ) {
+    return _v1(string.reference, string1.reference, throwable.reference)
+        .integer;
+  }
+
+  static final _d = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log1__d")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public int d(java.lang.String string, java.lang.String string1)
+  static int d(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return _d(string.reference, string1.reference).integer;
+  }
+
+  static final _d1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log1__d1")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public int d(java.lang.String string, java.lang.String string1, java.lang.Throwable throwable)
+  static int d1(
+    jni.JString string,
+    jni.JString string1,
+    jni.JObject throwable,
+  ) {
+    return _d1(string.reference, string1.reference, throwable.reference)
+        .integer;
+  }
+
+  static final _i = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log1__i")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public int i(java.lang.String string, java.lang.String string1)
+  static int i(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return _i(string.reference, string1.reference).integer;
+  }
+
+  static final _i1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log1__i1")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public int i(java.lang.String string, java.lang.String string1, java.lang.Throwable throwable)
+  static int i1(
+    jni.JString string,
+    jni.JString string1,
+    jni.JObject throwable,
+  ) {
+    return _i1(string.reference, string1.reference, throwable.reference)
+        .integer;
+  }
+
+  static final _w = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log1__w")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public int w(java.lang.String string, java.lang.String string1)
+  static int w(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return _w(string.reference, string1.reference).integer;
+  }
+
+  static final _w1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log1__w1")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public int w(java.lang.String string, java.lang.String string1, java.lang.Throwable throwable)
+  static int w1(
+    jni.JString string,
+    jni.JString string1,
+    jni.JObject throwable,
+  ) {
+    return _w1(string.reference, string1.reference, throwable.reference)
+        .integer;
+  }
+
+  static final _isLoggable = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Int32)>>("Log1__isLoggable")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>, int)>();
+
+  /// from: static public native boolean isLoggable(java.lang.String string, int i)
+  static bool isLoggable(
+    jni.JString string,
+    int i,
+  ) {
+    return _isLoggable(string.reference, i).boolean;
+  }
+
+  static final _w2 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log1__w2")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public int w(java.lang.String string, java.lang.Throwable throwable)
+  static int w2(
+    jni.JString string,
+    jni.JObject throwable,
+  ) {
+    return _w2(string.reference, throwable.reference).integer;
+  }
+
+  static final _e = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log1__e")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public int e(java.lang.String string, java.lang.String string1)
+  static int e(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return _e(string.reference, string1.reference).integer;
+  }
+
+  static final _e1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log1__e1")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public int e(java.lang.String string, java.lang.String string1, java.lang.Throwable throwable)
+  static int e1(
+    jni.JString string,
+    jni.JString string1,
+    jni.JObject throwable,
+  ) {
+    return _e1(string.reference, string1.reference, throwable.reference)
+        .integer;
+  }
+
+  static final _wtf = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log1__wtf")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public int wtf(java.lang.String string, java.lang.String string1)
+  static int wtf(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return _wtf(string.reference, string1.reference).integer;
+  }
+
+  static final _wtf1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log1__wtf1")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public int wtf(java.lang.String string, java.lang.Throwable throwable)
+  static int wtf1(
+    jni.JString string,
+    jni.JObject throwable,
+  ) {
+    return _wtf1(string.reference, throwable.reference).integer;
+  }
+
+  static final _wtf2 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Log1__wtf2")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public int wtf(java.lang.String string, java.lang.String string1, java.lang.Throwable throwable)
+  static int wtf2(
+    jni.JString string,
+    jni.JString string1,
+    jni.JObject throwable,
+  ) {
+    return _wtf2(string.reference, string1.reference, throwable.reference)
+        .integer;
+  }
+
+  static final _getStackTraceString = jniLookup<
+              ffi
+              .NativeFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>>(
+          "Log1__getStackTraceString")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.lang.String getStackTraceString(java.lang.Throwable throwable)
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JString getStackTraceString(
+    jni.JObject throwable,
+  ) {
+    return const jni.JStringType()
+        .fromRef(_getStackTraceString(throwable.reference).object);
+  }
+
+  static final _println = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Int32, ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Log1__println")
+      .asFunction<
+          jni.JniResult Function(
+              int, ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public int println(int i, java.lang.String string, java.lang.String string1)
+  static int println(
+    int i,
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return _println(i, string.reference, string1.reference).integer;
+  }
+}
+
+final class $Log1Type extends jni.JObjType<Log1> {
+  const $Log1Type();
+
+  @override
+  String get signature => r"Landroid/util/Log;";
+
+  @override
+  Log1 fromRef(jni.JObjectPtr ref) => Log1.fromRef(ref);
+
+  @override
+  jni.JObjType get superType => const jni.JObjectType();
+
+  @override
+  final superCount = 1;
+
+  @override
+  int get hashCode => ($Log1Type).hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($Log1Type) && other is $Log1Type;
   }
 }

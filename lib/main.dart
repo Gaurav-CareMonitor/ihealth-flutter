@@ -12,20 +12,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final context = Context.fromRef(Jni.getCachedApplicationContext());
-    final sdkStatus = HealthConnectClient.sdkStatus1(context);
-    if (sdkStatus != HealthConnectClient.SDK_AVAILABLE) {
-      return const MaterialApp(home: NoHealthConnect());
-    }
-    final client = HealthConnectClient.getOrCreate1(context);
+    //   final context = Context.fromRef(Jni.getCachedApplicationContext());
+    //   final sdkStatus = HealthConnectClient.sdkStatus1(context);
+    //   if (sdkStatus != HealthConnectClient.SDK_AVAILABLE) {
+    //     return const MaterialApp(home: NoHealthConnect());
+    //   }
+    //   final client = HealthConnectClient.getOrCreate1(context);
     return MaterialApp(
       title: 'Step Counter',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(
+      home: const MyHomePage(
         title: 'Step Counter!',
-        client: client,
+        //   client: client,
       ),
     );
   }
@@ -45,34 +45,51 @@ class NoHealthConnect extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title, required this.client});
+  const MyHomePage({
+    super.key,
+    required this.title,
+  });
 
   final String title;
-  final HealthConnectClient client;
+//  final HealthConnectClient client;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  final int _counter = 0;
 
   void _getSteps() async {
-    final yesterday = DateTime.now().subtract(const Duration(days: 1));
-    final aggregateRequest = AggregateRequest(
-      {StepsRecord.COUNT_TOTAL}.toJSet(AggregateMetric.type(JLong.type)),
-      TimeRangeFilter.after(
-        Instant.ofEpochMilli(yesterday.millisecondsSinceEpoch),
-      ),
-      JSet.hash(JObject.type), // Empty set
-    );
-    final result = await widget.client.aggregate(aggregateRequest);
-    if (result.isNull) return;
-    final stepCount = result.get0(StepsRecord.COUNT_TOTAL);
-    if (stepCount.isNull) return;
-    setState(() {
-      _counter = stepCount.longValue();
-    });
+    final context = Context.fromRef(Jni.getCachedApplicationContext());
+
+    print("HealthConnectClient.sdkStatus $context");
+    JObject jObject = JObject.fromRef(Jni.getCachedApplicationContext());
+
+    iHealthDevicesManager
+        .getInstance()
+        .init(jObject, Log1.VERBOSE, Log1.VERBOSE);
+
+    print(
+        "iHealthDevicesManager.getInstance().sdkAuthWithLicense(context, \"\");");
+
+    //  JArray jArray = JArray.fromRef(Jni.getCachedApplicationContext());
+
+    // iHealthDevicesManager().sdkAuthWithLicense(context, "");
+    // final aggregateRequest = AggregateRequest(
+    //   {StepsRecord.COUNT_TOTAL}.toJSet(AggregateMetric.type(JLong.type)),
+    //   TimeRangeFilter.after(
+    //     Instant.ofEpochMilli(yesterday.millisecondsSinceEpoch),
+    //   ),
+    //   JSet.hash(JObject.type), // Empty set
+    // );
+    // final result = await widget.client.aggregate(aggregateRequest);
+    // if (result.isNull) return;
+    // final stepCount = result.get0(StepsRecord.COUNT_TOTAL);
+    // if (stepCount.isNull) return;
+    // setState(() {
+    //   _counter = stepCount.longValue();
+    // });
   }
 
   @override
