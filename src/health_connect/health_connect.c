@@ -5560,3 +5560,321 @@ JniResult Log1__println(int32_t i,jobject string,jobject string1) {
     return (JniResult){.value = {.i = _result}, .exception = check_exception()};
 }
 
+// com.ihealth.communication.control.Hs2sControl
+jclass _c_Hs2sControl = NULL;
+
+jmethodID _m_Hs2sControl__new0 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__new0(jobject context,jobject baseComm,jobject string,jobject string1,jobject string2,jobject insCallback,jobject baseCommCallback) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__new0, "<init>", "(Landroid/content/Context;Lcom/ihealth/communication/base/comm/BaseComm;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/ihealth/communication/ins/InsCallback;Lcom/ihealth/communication/base/comm/BaseCommCallback;)V");
+    if (_m_Hs2sControl__new0 == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    jobject _result = (*jniEnv)->NewObject(jniEnv, _c_Hs2sControl, _m_Hs2sControl__new0, context, baseComm, string, string1, string2, insCallback, baseCommCallback);
+    return to_global_ref_result(_result);
+}
+
+jmethodID _m_Hs2sControl__getDeviceInfo = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__getDeviceInfo(jobject self_) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__getDeviceInfo, "getDeviceInfo", "()V");
+    if (_m_Hs2sControl__getDeviceInfo == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__getDeviceInfo);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__getBattery = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__getBattery(jobject self_) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__getBattery, "getBattery", "()V");
+    if (_m_Hs2sControl__getBattery == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__getBattery);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__setUnit = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__setUnit(jobject self_,int32_t i) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__setUnit, "setUnit", "(I)V");
+    if (_m_Hs2sControl__setUnit == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__setUnit, i);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__getUserInfo = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__getUserInfo(jobject self_) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__getUserInfo, "getUserInfo", "()V");
+    if (_m_Hs2sControl__getUserInfo == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__getUserInfo);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__createOrUpdateUserInfo = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__createOrUpdateUserInfo(jobject self_,jobject string,float f,int32_t i,int32_t i1,int32_t i2,int32_t i3,int32_t i4) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__createOrUpdateUserInfo, "createOrUpdateUserInfo", "(Ljava/lang/String;FIIIII)V");
+    if (_m_Hs2sControl__createOrUpdateUserInfo == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__createOrUpdateUserInfo, string, f, i, i1, i2, i3, i4);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__deleteUserInfo = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__deleteUserInfo(jobject self_,jobject string) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__deleteUserInfo, "deleteUserInfo", "(Ljava/lang/String;)V");
+    if (_m_Hs2sControl__deleteUserInfo == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__deleteUserInfo, string);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__specifyTouristUsers = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__specifyTouristUsers(jobject self_) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__specifyTouristUsers, "specifyTouristUsers", "()V");
+    if (_m_Hs2sControl__specifyTouristUsers == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__specifyTouristUsers);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__specifyOnlineUsers = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__specifyOnlineUsers(jobject self_,jobject string,float f,int32_t i,int32_t i1,int32_t i2,int32_t i3,int32_t i4) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__specifyOnlineUsers, "specifyOnlineUsers", "(Ljava/lang/String;FIIIII)V");
+    if (_m_Hs2sControl__specifyOnlineUsers == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__specifyOnlineUsers, string, f, i, i1, i2, i3, i4);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__getOfflineDataCount = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__getOfflineDataCount(jobject self_,jobject strings) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__getOfflineDataCount, "getOfflineDataCount", "([Ljava/lang/String;)V");
+    if (_m_Hs2sControl__getOfflineDataCount == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__getOfflineDataCount, strings);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__getOfflineData = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__getOfflineData(jobject self_,jobject string) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__getOfflineData, "getOfflineData", "(Ljava/lang/String;)V");
+    if (_m_Hs2sControl__getOfflineData == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__getOfflineData, string);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__deleteOfflineData = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__deleteOfflineData(jobject self_,jobject string) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__deleteOfflineData, "deleteOfflineData", "(Ljava/lang/String;)V");
+    if (_m_Hs2sControl__deleteOfflineData == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__deleteOfflineData, string);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__getAnonymousDataCount = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__getAnonymousDataCount(jobject self_) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__getAnonymousDataCount, "getAnonymousDataCount", "()V");
+    if (_m_Hs2sControl__getAnonymousDataCount == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__getAnonymousDataCount);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__getAnonymousData = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__getAnonymousData(jobject self_) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__getAnonymousData, "getAnonymousData", "()V");
+    if (_m_Hs2sControl__getAnonymousData == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__getAnonymousData);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__deleteAnonymousData = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__deleteAnonymousData(jobject self_) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__deleteAnonymousData, "deleteAnonymousData", "()V");
+    if (_m_Hs2sControl__deleteAnonymousData == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__deleteAnonymousData);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__startHeartRateMode = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__startHeartRateMode(jobject self_) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__startHeartRateMode, "startHeartRateMode", "()V");
+    if (_m_Hs2sControl__startHeartRateMode == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__startHeartRateMode);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__stopHeartRateMode = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__stopHeartRateMode(jobject self_) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__stopHeartRateMode, "stopHeartRateMode", "()V");
+    if (_m_Hs2sControl__stopHeartRateMode == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__stopHeartRateMode);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__setBleLight = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__setBleLight(jobject self_) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__setBleLight, "setBleLight", "()V");
+    if (_m_Hs2sControl__setBleLight == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__setBleLight);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__restoreFactorySettings = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__restoreFactorySettings(jobject self_) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__restoreFactorySettings, "restoreFactorySettings", "()V");
+    if (_m_Hs2sControl__restoreFactorySettings == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__restoreFactorySettings);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__getUpDeviceControl = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__getUpDeviceControl(jobject self_) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__getUpDeviceControl, "getUpDeviceControl", "()Lcom/ihealth/communication/control/UpDeviceControl;");
+    if (_m_Hs2sControl__getUpDeviceControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    jobject _result = (*jniEnv)->CallObjectMethod(jniEnv, self_, _m_Hs2sControl__getUpDeviceControl);
+    return to_global_ref_result(_result);
+}
+
+jmethodID _m_Hs2sControl__init = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__init(jobject self_) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__init, "init", "()V");
+    if (_m_Hs2sControl__init == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__init);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__disconnect = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__disconnect(jobject self_) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__disconnect, "disconnect", "()V");
+    if (_m_Hs2sControl__disconnect == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__disconnect);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__destroy = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__destroy(jobject self_) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__destroy, "destroy", "()V");
+    if (_m_Hs2sControl__destroy == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Hs2sControl__destroy);
+    return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Hs2sControl__getIDPS = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Hs2sControl__getIDPS(jobject self_) {
+    load_env();
+        load_class_global_ref(&_c_Hs2sControl, "com/ihealth/communication/control/Hs2sControl");
+    if (_c_Hs2sControl == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    load_method(_c_Hs2sControl,
+      &_m_Hs2sControl__getIDPS, "getIDPS", "()Ljava/lang/String;");
+    if (_m_Hs2sControl__getIDPS == NULL) return (JniResult){.value = {.j = 0}, .exception = check_exception()};
+    jobject _result = (*jniEnv)->CallObjectMethod(jniEnv, self_, _m_Hs2sControl__getIDPS);
+    return to_global_ref_result(_result);
+}
+
+// com.ihealth.communication.control.Hs2sProfile
+jclass _c_Hs2sProfile = NULL;
+

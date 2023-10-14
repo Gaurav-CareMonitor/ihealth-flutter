@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final int _counter = 0;
 
   void _getSteps() async {
-    final context = Context.fromRef(Jni.getCachedApplicationContext());
+    // final context = Context.fromRef(Jni.getCachedApplicationContext());
 
     JObject jObject = JObject.fromRef(Jni.getCachedApplicationContext());
 
@@ -92,15 +92,27 @@ class _MyHomePageState extends State<MyHomePage> {
 
     debugPrint("iHealth device manager initialized");
 
-    iHealthDevicesManager().registerClientCallback(IhealthCallback());
+    // iHealthDevicesManager().registerClientCallback(IhealthCallback());
 
-    // No method for implement
-    //!   iHealthDevicesCallback.implement($iHealthDevicesCallbackImpl(...))
+    // // No method for implement
+    // iHealthDevicesCallback.implement($iHealthDevicesCallbackImpl(...))
 
-    iHealthDevicesManager().startDiscovery(DiscoveryTypeEnum.HS2S);
+    // iHealthDevicesManager().startDiscovery(DiscoveryTypeEnum.HS2S);
 
-    //! How to Convert asset to JArray
-    ByteData data = await rootBundle.load('assets/privatekey.pem');
+    ByteData data = await rootBundle.load('assets/key.pem');
+
+    print("data: ${data.buffer.asUint8List()}}");
+
+    final body = data.buffer.asUint8List();
+
+    final bodyBytes = JArray(jbyte.type, body.length);
+    for (var i = 0; i < body.length; ++i) {
+      bodyBytes[i] = body[i];
+    }
+    final bool isAuthenticated =
+        iHealthDevicesManager.getInstance().sdkAuthWithLicense(bodyBytes);
+
+    print("isAuthenticated: $isAuthenticated");
 
     // JArray from buffer
 

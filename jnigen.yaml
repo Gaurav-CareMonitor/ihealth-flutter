@@ -32,4 +32,6 @@ classes:
   - 'java.io.InputStream'
   - 'android.util.Log'
   - 'java.io.InputStream'
+  - 'com.ihealth.communication.control.Hs2sControl'
+  - 'com.ihealth.communication.control.Hs2sProfile'
 
