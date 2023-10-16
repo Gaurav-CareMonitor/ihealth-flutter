@@ -101,8 +101,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
     ByteData data = await rootBundle.load('assets/key.pem');
 
-    print("data: ${data.buffer.asUint8List()}}");
-
     final body = data.buffer.asUint8List();
 
     final bodyBytes = JArray(jbyte.type, body.length);
@@ -112,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final bool isAuthenticated =
         iHealthDevicesManager.getInstance().sdkAuthWithLicense(bodyBytes);
 
-    print("isAuthenticated: $isAuthenticated");
+    print("isAuthenticated from flutter: $isAuthenticated");
 
     // JArray from buffer
 
